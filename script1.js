@@ -1,8 +1,7 @@
-```javascript id="9rv3pk"
-// =====================================
+// =======================================
 // MARINA & KLAUS
-// VERSÃO PREMIUM
-// =====================================
+// SCRIPT FINAL
+// =======================================
 
 // DATA DE INÍCIO
 
@@ -23,7 +22,7 @@ function atualizarContador() {
     const contador = document.getElementById("contadorDias");
 
     if (contador) {
-        contador.innerText = dias;
+        contador.textContent = dias;
     }
 
 }
@@ -33,69 +32,67 @@ atualizarContador();
 setInterval(atualizarContador, 60000);
 
 
-// =====================================
-// CONTADOR CHILE
-// =====================================
+// =======================================
+// CHILE
+// =======================================
 
 const dataChile = new Date("2026-07-01T00:00:00");
 
 function atualizarChile() {
 
+    const elemento = document.getElementById("diasChile");
+
+    if (!elemento) return;
+
     const agora = new Date();
 
-    const diferenca = dataChile - agora;
-
     const dias = Math.ceil(
-        diferenca / (1000 * 60 * 60 * 24)
+        (dataChile - agora) /
+        (1000 * 60 * 60 * 24)
     );
 
-    const chile = document.getElementById("diasChile");
-
-    if (chile && dias > 0) {
-        chile.innerText = dias;
-    }
+    elemento.textContent = dias > 0 ? dias : 0;
 
 }
 
 atualizarChile();
 
 
-// =====================================
-// CONTADOR RIO
-// =====================================
+// =======================================
+// RIO
+// =======================================
 
 const dataRio = new Date("2026-09-01T00:00:00");
 
 function atualizarRio() {
 
+    const elemento = document.getElementById("diasRio");
+
+    if (!elemento) return;
+
     const agora = new Date();
 
-    const diferenca = dataRio - agora;
-
     const dias = Math.ceil(
-        diferenca / (1000 * 60 * 60 * 24)
+        (dataRio - agora) /
+        (1000 * 60 * 60 * 24)
     );
 
-    const rio = document.getElementById("diasRio");
-
-    if (rio && dias > 0) {
-        rio.innerText = dias;
-    }
+    elemento.textContent = dias > 0 ? dias : 0;
 
 }
 
 atualizarRio();
 
 
-// =====================================
-// FADE SUAVE DAS IMAGENS
-// =====================================
+// =======================================
+// ANIMAÇÕES AO ROLAR
+// =======================================
 
 const observer = new IntersectionObserver(
 
 (entries) => {
 
-    entries.forEach((entry) => {
+    entries.forEach(entry => {
 
         if (entry.isIntersecting) {
 
@@ -113,11 +110,19 @@ const observer = new IntersectionObserver(
 
 );
 
-document
-.querySelectorAll(
-".full-photo, .travel-text-block, .polaroid, .pet-card, .future-card"
-)
-.forEach((el) => {
+document.querySelectorAll(
+`
+.full-photo,
+.travel-text-block,
+.polaroid,
+.pet-card,
+.future-card,
+.memory-section,
+.timeline,
+.letter,
+.relationship-stats
+`
+).forEach(el => {
 
     el.classList.add("hidden");
 
@@ -126,9 +131,9 @@ document
 });
 
 
-// =====================================
-// EFEITO PARALLAX SUAVE HERO
-// =====================================
+// =======================================
+// PARALLAX SUAVE HERO
+// =======================================
 
 window.addEventListener("scroll", () => {
 
@@ -139,56 +144,37 @@ window.addEventListener("scroll", () => {
     const scroll = window.pageYOffset;
 
     hero.style.transform =
-        `translateY(${scroll * 0.15}px) scale(1.08)`;
+        `translateY(${scroll * 0.12}px) scale(1.08)`;
 
 });
 
 
-// =====================================
-// SCROLL SUAVE
-// =====================================
+// =======================================
+// TÍTULO APARECENDO
+// =======================================
 
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+window.addEventListener("load", () => {
 
-    anchor.addEventListener('click', function (e) {
+    const subtitle = document.querySelector(".subtitle");
 
-        e.preventDefault();
+    if (!subtitle) return;
 
-        document
-            .querySelector(this.getAttribute('href'))
-            .scrollIntoView({
-                behavior: 'smooth'
-            });
-
-    });
-
-});
-
-
-// =====================================
-// EFEITO DIGITAÇÃO
-// =====================================
-
-const titulo = document.querySelector(".subtitle");
-
-if (titulo) {
-
-    titulo.style.opacity = 0;
+    subtitle.style.opacity = "0";
 
     setTimeout(() => {
 
-        titulo.style.transition = "1.2s";
+        subtitle.style.transition = "1.5s";
 
-        titulo.style.opacity = 1;
+        subtitle.style.opacity = "1";
 
-    }, 500);
+    }, 400);
 
-}
+});
 
 
-// =====================================
-// PRELOAD DAS IMAGENS
-// =====================================
+// =======================================
+// PRELOAD
+// =======================================
 
 window.addEventListener("load", () => {
 
@@ -197,19 +183,15 @@ window.addEventListener("load", () => {
 });
 
 
-// =====================================
-// CONSOLE MESSAGE
-// =====================================
+// =======================================
+// CONSOLE
+// =======================================
 
-console.log(
-`
-Marina & Klaus
+console.log(`
+Marina & Klaus ❤️
 
 Nosso Primeiro Capítulo
 
-Atualizado continuamente desde
-17 de novembro de 2025 ❤️
-`
-);
-```
-
+Atualizado continuamente
+desde 17/11/2025
+`);
