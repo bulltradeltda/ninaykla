@@ -712,13 +712,11 @@ letter-spacing:2px;
 
 .fade-in{
 
-opacity:0;
+opacity:1;
 
-transform:translateY(40px);
+transform:none;
 
-transition:
-opacity .8s ease,
-transform .8s ease;
+transition:none;
 
 }
 
@@ -726,7 +724,7 @@ transform .8s ease;
 
 opacity:1;
 
-transform:translateY(0);
+transform:none;
 
 }
 
