@@ -717,6 +717,28 @@ height:60vh;
 font-size:2.5rem;
 
 }
+  
+/* ANIMAÇÕES */
 
+.hidden{
+
+opacity:0;
+
+transform:translateY(40px);
+
+transition:
+opacity .9s ease,
+transform .9s ease;
+
+}
+
+.show{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+  
 }
 ```
