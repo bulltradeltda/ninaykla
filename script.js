@@ -1,32 +1,64 @@
-const inicio = new Date("2025-11-17T00:00:00");
+const dataInicio = new Date("2025-11-17T00:00:00");
 
-function atualizar() {
+function atualizarContador() {
 
-const agora = new Date();
+    const agora = new Date();
 
-const diferenca = agora - inicio;
+    const diferenca = agora - dataInicio;
 
-const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
+    const dias = Math.floor(
+        diferenca / (1000 * 60 * 60 * 24)
+    );
 
-const horas = Math.floor(
-(diferenca / (1000 * 60 * 60)) % 24
-);
+    const contador = document.getElementById("contadorDias");
 
-const minutos = Math.floor(
-(diferenca / (1000 * 60)) % 60
-);
-
-document.getElementById("contador").innerHTML = `
-<div class="contador-box">
-${dias} dias
-<br>
-${horas} horas
-<br>
-${minutos} minutos
-</div>
-`;
+    if(contador){
+        contador.innerText = dias;
+    }
 
 }
 
-atualizar();
-setInterval(atualizar,1000);
+atualizarContador();
+
+setInterval(atualizarContador,60000);
+
+
+// Fade-in das seções
+
+const elementos = document.querySelectorAll(".fade-in");
+
+const observer = new IntersectionObserver((entries)=>{
+
+    entries.forEach(entry=>{
+
+        if(entry.isIntersecting){
+
+            entry.target.classList.add("visible");
+
+        }
+
+    });
+
+},{
+    threshold:0.15
+});
+
+elementos.forEach(el=>{
+    observer.observe(el);
+});
+
+
+// Parallax leve da capa
+
+window.addEventListener("scroll",()=>{
+
+    const heroImage = document.querySelector(".hero-image");
+
+    if(!heroImage) return;
+
+    const scroll = window.pageYOffset;
+
+    heroImage.style.transform =
+        `translateY(${scroll * 0.25}px) scale(1.05)`;
+
+});
