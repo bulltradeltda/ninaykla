@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,267 +10,449 @@
 <link rel="stylesheet" href="style.css">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Caveat&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Caveat:wght@400;500&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
 
-<section class="hero">
+<!-- HERO -->
 
-<div class="overlay"></div>
+<header class="hero">
 
-<div class="hero-content">
-<h1>Marina & Klaus</h1>
+    <div class="hero-overlay"></div>
 
-<p>
-Um Ano
-</p>
+    <img src="fotos/capa.jpg" class="hero-image">
 
-<span>
-Uma coleção de lugares, pessoas, viagens e momentos que transformaram este último ano em algo que eu nunca quero esquecer.
-</span>
+    <div class="hero-content">
 
-<a href="#musica" class="btn">
-Começar
-</a>
+        <span class="hero-date">17 Novembro 2025</span>
 
-</div>
+        <h1>Marina & Klaus</h1>
 
-</section>
+        <p class="subtitle">
+            Um Ano
+        </p>
 
-<section id="musica" class="section">
+        <div class="scroll-indicator">
+            ↓
+        </div>
 
-<h2>Nossa Música</h2>
+    </div>
 
-<iframe style="border-radius:12px"
-src="https://open.spotify.com/embed/track/3xKsf9qdS1CyvXSMEid6g8"
-width="100%"
-height="152"
-frameborder="0"
-allowfullscreen=""
-allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
-</iframe>
+</header>
 
-<p class="quote">
-"Não porque fala sobre um ano.
-Mas porque me lembra de como o tempo passa rápido quando estou contigo."
-</p>
+<!-- MÚSICA -->
 
-</section>
+<section class="section music fade-in">
 
-<section class="section">
+    <span class="section-tag">
+        Trilha Sonora
+    </span>
 
-<h2>Estamos escrevendo essa história há</h2>
+    <h2>Nossa Música</h2>
 
-<div id="contador"></div>
+    <p class="section-intro">
+        Algumas músicas a gente escuta.
+        Outras acabam virando parte da memória.
+    </p>
 
-</section>
+    <div class="spotify-container">
 
-<section class="section carta">
+        <iframe style="border-radius:12px"
+        src="https://open.spotify.com/embed/track/6P0vwP6ElJwJw7U6V7s4nH"
+        width="100%"
+        height="152"
+        frameborder="0"
+        allowfullscreen=""
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+        </iframe>
 
-<h2>O que mudou desde que te conheci</h2>
-
-<div class="texto">
-
-<p>
-É engraçado pensar que, antes de te conhecer, eu já tinha meus planos, minha rotina e minhas ideias de como as coisas seriam.
-</p>
-
-<p>
-E então você apareceu.
-</p>
-
-<p>
-Não de um jeito que virou tudo de cabeça para baixo.
-Mas de um jeito muito melhor.
-</p>
-
-<p>
-Você foi ocupando espaço aos poucos.
-</p>
-
-<p>
-Nas conversas.
-Nos cafés.
-Nas viagens.
-Nos domingos.
-</p>
-
-<p>
-Quando percebi, já não imaginava muitas coisas sem pensar em você junto.
-</p>
-
-<p>
-As cidades ficaram mais interessantes.
-As viagens mais divertidas.
-E os dias comuns mais especiais.
-</p>
-
-<p>
-Porque passaram a ser compartilhados contigo.
-</p>
-
-<p>
-E essa continua sendo uma das minhas coisas favoritas sobre você.
-</p>
-
-</div>
+    </div>
 
 </section>
 
-<section class="section">
+<!-- CONTADOR -->
 
-<h2>Nossos Lugares</h2>
+<section class="section counter-section fade-in">
 
-<div class="galeria">
+    <div class="counter-wrapper">
 
-<img src="fotos/saopaulo.jpg">
-<img src="fotos/buenosaires.jpg">
-<img src="fotos/xangrila.jpg">
-<img src="fotos/bento.jpg">
+        <div id="contadorDias" class="counter-number">
+            0
+        </div>
 
-</div>
+        <div class="counter-label">
+            dias
+        </div>
 
-</section>
+    </div>
 
-<section class="section">
+    <div class="stats-grid">
 
-<h2>Nossa Rotina</h2>
+        <div class="stat">
+            <span>✈</span>
+            <p>Buenos Aires</p>
+        </div>
 
-<div class="grid">
+        <div class="stat">
+            <span>🏖</span>
+            <p>Xangri-lá</p>
+        </div>
 
-<div class="card">
-☕
-<h3>Cafés</h3>
-<p>
-Um número desconhecido de cafés.
-Uma quantidade ainda maior de conversas.
-</p>
-</div>
+        <div class="stat">
+            <span>🍷</span>
+            <p>Bento</p>
+        </div>
 
-<div class="card">
-🏃
-<h3>Corridas</h3>
-<p>
-Algumas aventuras terminam cansados dentro do elevador.
-</p>
-</div>
+        <div class="stat">
+            <span>❤️</span>
+            <p>Em construção</p>
+        </div>
 
-<div class="card">
-⚽
-<h3>Grêmio</h3>
-<p>
-Nem sempre concordamos em tudo.
-Mas nisso ficou fácil.
-</p>
-</div>
-
-</div>
+    </div>
 
 </section>
 
-<section class="section">
+<!-- CARTA -->
 
-<h2>Cora & Cody</h2>
+<section class="section letter-section fade-in">
 
-<div class="galeria">
+    <span class="section-tag">
+        Carta
+    </span>
 
-<img src="fotos/cora.jpg">
-<img src="fotos/cody.jpg">
+    <h2>O que mudou desde que te conheci</h2>
 
-</div>
+    <div class="letter">
 
-<p class="quote">
-Eles entraram para a nossa história sem pedir autorização.
-</p>
+        <p>
+            Marina,
+        </p>
 
-</section>
+        <p>
+            É engraçado pensar que, antes de te conhecer, eu já tinha meus planos, minha rotina e minhas ideias de como as coisas seriam.
+        </p>
 
-<section class="section">
+        <p>
+            E então você apareceu.
+        </p>
 
-<h2>Próximos Capítulos</h2>
+        <p>
+            Não de um jeito que virou tudo de cabeça para baixo.
+            Mas de um jeito muito melhor.
+        </p>
 
-<div class="future">
+        <p>
+            Você foi ocupando espaço aos poucos.
+        </p>
 
-<div class="future-card">
-🇨🇱
-<h3>Chile</h3>
-<p>Julho 2026</p>
-<span>Reservado para novas histórias.</span>
-</div>
+        <p>
+            Nas conversas.
+            Nos cafés.
+            Nas viagens.
+            Nos domingos.
+        </p>
 
-<div class="future-card">
-🇧🇷
-<h3>Rio de Janeiro</h3>
-<p>Setembro 2026</p>
-<span>Reservado para novas histórias.</span>
-</div>
+        <p>
+            Quando percebi, já não imaginava muitas coisas sem pensar em você junto.
+        </p>
 
-</div>
+        <p>
+            As cidades ficaram mais interessantes.
+            As viagens mais divertidas.
+            E os dias comuns mais especiais.
+        </p>
 
-</section>
+        <p>
+            Porque passaram a ser compartilhados contigo.
+        </p>
 
-<section class="section carta">
+        <p>
+            E essa continua sendo uma das minhas coisas favoritas sobre você.
+        </p>
 
-<h2>O que espero viver contigo</h2>
-
-<div class="texto">
-
-<p>
-Quando olho para trás, gosto de tudo que construímos até aqui.
-</p>
-
-<p>
-Mas o que mais me anima é olhar para frente.
-</p>
-
-<p>
-Ainda temos viagens para fazer.
-Fotos para tirar.
-Lugares para descobrir.
-Histórias para contar.
-</p>
-
-<p>
-Em alguns meses estaremos no Chile.
-Depois no Rio.
-</p>
-
-<p>
-Mas para ser sincero:
-nunca foi sobre os lugares.
-</p>
-
-<p>
-O que faz cada viagem valer a pena é dividir ela contigo.
-</p>
-
-<p>
-Espero continuar encontrando novos caminhos contigo.
-</p>
-
-<p>
-E continuar escolhendo caminhar ao teu lado em cada um deles.
-</p>
-
-</div>
+    </div>
 
 </section>
 
-<section class="ending">
+<!-- VIAGENS -->
 
-<h2>Continua...</h2>
+<section class="section fade-in">
 
-<p>
-Entre viagens, cafés, corridas, domingos comuns,
-a Cora, o Cody e tudo que vivemos até aqui,
-a melhor parte continua sendo você.
-</p>
+    <span class="section-tag">
+        Lugares
+    </span>
 
-<span>Atualizado continuamente desde 17/11/2025</span>
+    <h2>Capítulos da nossa história</h2>
 
 </section>
+
+<!-- BUENOS AIRES -->
+
+<section class="travel-section fade-in">
+
+    <img src="fotos/buenosaires-caminito.jpg">
+
+    <div class="travel-text">
+
+        <h3>Buenos Aires</h3>
+
+        <p>
+            Nossa primeira aventura internacional.
+        </p>
+
+        <p>
+            Muitas caminhadas.
+            Muito vinho.
+            Muitas fotos.
+        </p>
+
+        <p>
+            E nenhum momento em que eu não estivesse feliz por estar ali contigo.
+        </p>
+
+    </div>
+
+</section>
+
+<section class="photo-strip fade-in">
+
+    <img src="fotos/buenosaires-floralis.jpg">
+
+    <img src="fotos/buenosaires-elevador.jpg">
+
+</section>
+
+<!-- BENTO -->
+
+<section class="travel-section reverse fade-in">
+
+    <img src="fotos/bento-1.jpg">
+
+    <div class="travel-text">
+
+        <h3>Bento Gonçalves</h3>
+
+        <p>
+            Um daqueles lugares que parecem cena de filme.
+        </p>
+
+        <p>
+            E por sorte nós estávamos nele juntos.
+        </p>
+
+    </div>
+
+</section>
+
+<section class="full-photo fade-in">
+
+    <img src="fotos/bento-2.jpg">
+
+</section>
+
+<!-- ROTINA -->
+
+<section class="section fade-in">
+
+    <span class="section-tag">
+        Pequenas Coisas
+    </span>
+
+    <h2>A vida entre as viagens</h2>
+
+</section>
+
+<section class="polaroid-grid fade-in">
+
+    <div class="polaroid">
+        <img src="fotos/rotina-cama.jpg">
+        <span>Domingos comuns</span>
+    </div>
+
+    <div class="polaroid">
+        <img src="fotos/rotina-elevador.jpg">
+        <span>Pós corrida</span>
+    </div>
+
+    <div class="polaroid">
+        <img src="fotos/gremio.jpg">
+        <span>Prioridades alinhadas</span>
+    </div>
+
+</section>
+
+<!-- PETS -->
+
+<section class="section fade-in">
+
+    <span class="section-tag">
+        Família
+    </span>
+
+    <h2>Cora & Cody</h2>
+
+</section>
+
+<section class="pet-grid fade-in">
+
+    <div class="pet-card">
+        <img src="fotos/cora.jpg">
+        <p>
+            Algumas partes da nossa história têm quatro patas.
+        </p>
+    </div>
+
+    <div class="pet-card">
+        <img src="fotos/cody.jpg">
+        <p>
+            E personalidade suficiente para dominar a casa inteira.
+        </p>
+    </div>
+
+</section>
+
+<!-- AVÓ -->
+
+<section class="travel-section fade-in">
+
+    <img src="fotos/avo.jpg">
+
+    <div class="travel-text">
+
+        <h3>Pessoas importantes</h3>
+
+        <p>
+            Algumas pessoas merecem um espaço reservado nas nossas melhores lembranças.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- FUTURO -->
+
+<section class="section future-section fade-in">
+
+    <span class="section-tag">
+        Em Breve
+    </span>
+
+    <h2>Próximos Capítulos</h2>
+
+    <div class="future-grid">
+
+        <div class="future-card">
+
+            <h3>🇨🇱 Chile</h3>
+
+            <p>
+                Julho 2026
+            </p>
+
+            <span>
+                Reservado para novas histórias.
+            </span>
+
+        </div>
+
+        <div class="future-card">
+
+            <h3>🇧🇷 Rio de Janeiro</h3>
+
+            <p>
+                Setembro 2026
+            </p>
+
+            <span>
+                Reservado para novas histórias.
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CARTA FINAL -->
+
+<section class="section letter-section fade-in">
+
+    <span class="section-tag">
+        Futuro
+    </span>
+
+    <h2>O que espero viver contigo</h2>
+
+    <div class="letter">
+
+        <p>
+            Quando olho para trás, gosto de tudo que construímos até aqui.
+        </p>
+
+        <p>
+            Mas o que mais me anima é olhar para frente.
+        </p>
+
+        <p>
+            Ainda temos viagens para fazer.
+            Fotos para tirar.
+            Lugares para descobrir.
+        </p>
+
+        <p>
+            Em alguns meses estaremos no Chile.
+            Depois no Rio.
+        </p>
+
+        <p>
+            Mas para ser sincero:
+            nunca foi sobre os lugares.
+        </p>
+
+        <p>
+            O que faz cada viagem valer a pena é dividir ela contigo.
+        </p>
+
+        <p>
+            Espero continuar encontrando novos caminhos contigo.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- FINAL -->
+
+<footer class="ending">
+
+    <div class="ending-overlay"></div>
+
+    <img src="fotos/xangrila.jpg">
+
+    <div class="ending-content">
+
+        <h2>Continua...</h2>
+
+        <p>
+            Entre viagens,
+            cafés,
+            corridas,
+            domingos comuns,
+            a Cora,
+            o Cody,
+            e tudo que vivemos até aqui,
+            a melhor parte continua sendo você.
+        </p>
+
+        <span>
+            Atualizado continuamente desde 17/11/2025
+        </span>
+
+    </div>
+
+</footer>
 
 <script src="script.js"></script>
 
