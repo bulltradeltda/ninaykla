@@ -155,28 +155,41 @@ opacity:.4;
 /* CALENDAR */
 
 .calendar-section{
-background:white;
-padding:40px;
-border-radius:24px;
-margin:60px 0;
+    max-width:700px;
+    margin:100px auto;
+    padding:50px;
+    background:#f6f0e4;
+    border:1px solid #d8cbb0;
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
+}
+
+.calendar-section h3{
+    font-family:'Cormorant Garamond',serif;
+    font-size:2rem;
+    text-align:center;
+    margin-bottom:40px;
+    letter-spacing:3px;
 }
 
 .calendar-grid{
-display:grid;
-grid-template-columns:repeat(7,1fr);
-gap:10px;
+    display:grid;
+    grid-template-columns:repeat(7,1fr);
+    gap:12px;
 }
 
 .calendar-day{
-padding:14px;
-text-align:center;
-border-radius:12px;
-background:#eee;
+    aspect-ratio:1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border:1px solid #d9d2c5;
+    background:white;
 }
 
 .calendar-day.active{
-background:var(--gold);
-color:white;
+    background:#6d1f2b;
+    color:white;
+    font-weight:600;
 }
 
 /* POLAROIDS */
