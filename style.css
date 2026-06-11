@@ -1,738 +1,325 @@
-/* ==================================================
-   MARINA & KLAUS
-   ESTILO EDITORIAL PREMIUM
-================================================== */
-
-:root {
-
-    --bg: #f6f2ea;
-    --paper: #fbf8f2;
-    --text: #232323;
-
-    --gold: #b79b63;
-    --gold-soft: #d7c39a;
-
-    --line: rgba(0,0,0,.08);
-
-    --shadow:
-        0 20px 60px rgba(0,0,0,.08);
-
-    --radius: 24px;
+:root{
+--bg:#f6f2ea;
+--paper:#fbf8f2;
+--text:#232323;
+--gold:#b79b63;
+--line:rgba(0,0,0,.08);
 }
 
-/* ==================================================
-   RESET
-================================================== */
-
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
 html{
-    scroll-behavior:smooth;
+scroll-behavior:smooth;
 }
 
 body{
-
-    background:var(--bg);
-
-    color:var(--text);
-
-    font-family:'Inter',sans-serif;
-
-    overflow-x:hidden;
-
-    line-height:1.8;
+font-family:'Inter',sans-serif;
+background:var(--bg);
+color:var(--text);
+overflow-x:hidden;
+line-height:1.8;
 }
 
-/* ==================================================
-   PLAYER
-================================================== */
+/* INTRO */
 
-#music-player{
-
-    position:fixed;
-
-    top:20px;
-    right:20px;
-
-    z-index:999;
-
-    background:rgba(255,255,255,.85);
-
-    backdrop-filter:blur(15px);
-
-    border-radius:20px;
-
-    padding:14px 18px;
-
-    box-shadow:var(--shadow);
-
-    width:320px;
+#intro-screen{
+position:fixed;
+inset:0;
+background:#000;
+z-index:999999;
+display:flex;
+justify-content:center;
+align-items:center;
+color:white;
 }
 
-.music-info{
-
-    display:flex;
-    flex-direction:column;
-
-    margin-bottom:10px;
+.intro-content{
+text-align:center;
 }
 
-#song-title{
-
-    font-weight:600;
-    font-size:.9rem;
+.intro-content h1{
+font-family:'Cormorant Garamond',serif;
+font-size:5rem;
+font-weight:500;
 }
 
-#song-artist{
+/* MENU */
 
-    opacity:.7;
-    font-size:.8rem;
+#chapter-nav{
+position:fixed;
+left:25px;
+top:50%;
+transform:translateY(-50%);
+z-index:999;
+display:flex;
+flex-direction:column;
+gap:12px;
 }
 
-#audio-player{
-
-    width:100%;
+#chapter-nav a{
+text-decoration:none;
+color:#777;
+font-size:.85rem;
 }
 
-/* ==================================================
-   HERO
-================================================== */
+/* HERO */
 
 #hero{
-
-    height:100vh;
-
-    position:relative;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    overflow:hidden;
+height:100vh;
+position:relative;
+overflow:hidden;
 }
 
 #hero img{
-
-    position:absolute;
-
-    width:100%;
-    height:100%;
-
-    object-fit:cover;
-
-    filter:brightness(.65);
+width:100%;
+height:100%;
+object-fit:cover;
+filter:brightness(.65);
 }
 
 .hero-overlay{
-
-    position:relative;
-    z-index:2;
-
-    text-align:center;
-
-    color:white;
-
-    max-width:900px;
-
-    padding:40px;
+position:absolute;
+inset:0;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+color:white;
+text-align:center;
+padding:30px;
 }
 
 .hero-overlay h1{
-
-    font-family:'Cormorant Garamond',serif;
-
-    font-size:7rem;
-
-    font-weight:500;
-
-    letter-spacing:5px;
-
-    margin-bottom:20px;
-}
-
-.hero-overlay .date{
-
-    font-size:1rem;
-
-    letter-spacing:3px;
-
-    text-transform:uppercase;
-
-    opacity:.9;
-
-    margin-bottom:35px;
+font-family:'Cormorant Garamond',serif;
+font-size:6rem;
 }
 
 .hero-overlay blockquote{
-
-    font-family:'Cormorant Garamond',serif;
-
-    font-size:2rem;
-
-    font-style:italic;
-
-    max-width:650px;
-
-    margin:auto;
-
-    line-height:1.4;
+font-size:1.8rem;
+max-width:700px;
 }
 
-.scroll-indicator{
-
-    position:absolute;
-
-    bottom:40px;
-
-    z-index:2;
-
-    color:white;
-
-    text-align:center;
-
-    opacity:.8;
-
-    font-size:.9rem;
-
-    animation:float 2s infinite;
-}
-
-@keyframes float{
-
-    0%{transform:translateY(0);}
-    50%{transform:translateY(10px);}
-    100%{transform:translateY(0);}
-}
-
-/* ==================================================
-   CAPÍTULOS
-================================================== */
+/* CHAPTERS */
 
 .chapter{
-
-    max-width:1200px;
-
-    margin:auto;
-
-    padding:140px 40px;
+max-width:1200px;
+margin:auto;
+padding:120px 30px;
 }
 
-.chapter-header{
-
-    text-align:center;
-
-    margin-bottom:90px;
+.chapter h2{
+font-family:'Cormorant Garamond',serif;
+font-size:3.5rem;
+margin-bottom:30px;
 }
 
-.chapter-header span{
-
-    color:var(--gold);
-
-    letter-spacing:4px;
-
-    text-transform:uppercase;
-
-    font-size:.8rem;
-}
-
-.chapter-header h2{
-
-    font-family:'Cormorant Garamond',serif;
-
-    font-size:4rem;
-
-    font-weight:500;
-
-    margin-top:12px;
-}
-
-.chapter-song{
-
-    margin-top:20px;
-
-    opacity:.6;
-
-    font-style:italic;
-}
-
-/* ==================================================
-   CARTAS
-================================================== */
+/* LETTER */
 
 .letter{
-
-    max-width:850px;
-
-    margin:auto;
-
-    background:var(--paper);
-
-    padding:70px;
-
-    border-radius:var(--radius);
-
-    box-shadow:var(--shadow);
+background:white;
+padding:60px;
+border-radius:24px;
+box-shadow:0 20px 50px rgba(0,0,0,.08);
 }
 
-.letter p{
+/* DATE PAGES */
 
-    margin-bottom:25px;
-
-    font-size:1.08rem;
+.book-page{
+background:white;
+padding:50px;
+margin:60px 0;
+border-radius:24px;
+box-shadow:0 20px 50px rgba(0,0,0,.08);
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:40px;
+position:relative;
 }
 
-/* ==================================================
-   PRÓLOGO
-================================================== */
-
-.prologue{
-
-    text-align:center;
-
-    max-width:900px;
+.book-page img{
+width:100%;
+border-radius:18px;
 }
 
-.prologue h2{
-
-    font-family:'Cormorant Garamond',serif;
-
-    font-size:4rem;
-
-    margin-bottom:40px;
+.page-number{
+position:absolute;
+right:25px;
+bottom:20px;
+opacity:.4;
 }
 
-.prologue p{
+/* CALENDAR */
 
-    font-size:1.15rem;
-
-    margin-bottom:16px;
+.calendar-section{
+background:white;
+padding:40px;
+border-radius:24px;
+margin:60px 0;
 }
 
-/* ==================================================
-   DATE BOOK
-================================================== */
-
-.date-book{
-
-    display:flex;
-    flex-direction:column;
-
-    gap:120px;
+.calendar-grid{
+display:grid;
+grid-template-columns:repeat(7,1fr);
+gap:10px;
 }
 
-.date-page{
-
-    display:grid;
-
-    grid-template-columns:1fr 1fr;
-
-    gap:60px;
-
-    align-items:center;
+.calendar-day{
+padding:14px;
+text-align:center;
+border-radius:12px;
+background:#eee;
 }
 
-.date-page:nth-child(even) .date-photo{
-
-    order:2;
+.calendar-day.active{
+background:var(--gold);
+color:white;
 }
 
-.date-page:nth-child(even) .date-text{
-
-    order:1;
-}
-
-.date-photo img{
-
-    width:100%;
-
-    border-radius:24px;
-
-    box-shadow:var(--shadow);
-}
-
-.date-label{
-
-    color:var(--gold);
-
-    font-size:.85rem;
-
-    letter-spacing:2px;
-
-    text-transform:uppercase;
-}
-
-.date-text h3{
-
-    font-family:'Cormorant Garamond',serif;
-
-    font-size:2.6rem;
-
-    margin:10px 0 30px;
-}
-
-.date-text p{
-
-    margin-bottom:15px;
-}
-
-/* ==================================================
-   POLAROIDS
-================================================== */
+/* POLAROIDS */
 
 .polaroid-wall{
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(auto-fit,minmax(280px,1fr));
-
-    gap:60px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:40px;
 }
 
 .polaroid{
-
-    background:white;
-
-    padding:18px;
-
-    box-shadow:var(--shadow);
-
-    transform:rotate(-2deg);
-
-    transition:.4s;
-}
-
-.polaroid:nth-child(even){
-
-    transform:rotate(2deg);
-}
-
-.polaroid:hover{
-
-    transform:rotate(0deg) scale(1.04);
+background:white;
+padding:15px;
+box-shadow:0 15px 40px rgba(0,0,0,.08);
 }
 
 .polaroid img{
-
-    width:100%;
-
-    aspect-ratio:4/5;
-
-    object-fit:cover;
+width:100%;
+aspect-ratio:4/5;
+object-fit:cover;
 }
 
 .polaroid span{
-
-    display:block;
-
-    text-align:center;
-
-    margin-top:15px;
-
-    font-family:'Cormorant Garamond',serif;
-
-    font-size:1.3rem;
+display:block;
+text-align:center;
+margin-top:15px;
 }
 
-/* ==================================================
-   FRASE CAPÍTULO IV
-================================================== */
+/* QUOTE */
 
 .quote-page{
-
-    min-height:90vh;
-
-    display:flex;
-
-    justify-content:center;
-    align-items:center;
-
-    text-align:center;
-
-    padding:60px;
+min-height:80vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:40px;
 }
 
 .quote-page blockquote{
-
-    max-width:1000px;
-
-    font-family:'Cormorant Garamond',serif;
-
-    font-size:4rem;
-
-    line-height:1.4;
-
-    color:var(--gold);
+font-family:'Cormorant Garamond',serif;
+font-size:4rem;
+max-width:900px;
 }
 
-/* ==================================================
-   GALERIA DE AMIGOS
-================================================== */
+/* TRAVEL */
 
-.friend-grid{
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(auto-fit,minmax(280px,1fr));
-
-    gap:25px;
+.travel-stop{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:40px;
+align-items:center;
+margin:80px 0;
 }
 
-.friend-grid img{
-
-    width:100%;
-
-    border-radius:20px;
-
-    box-shadow:var(--shadow);
+.travel-stop img{
+width:100%;
+border-radius:20px;
 }
 
-/* ==================================================
-   MAPA
-================================================== */
-
-.map-container{
-
-    background:white;
-
-    border-radius:30px;
-
-    padding:60px;
-
-    box-shadow:var(--shadow);
-}
-
-.map-grid{
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(auto-fit,minmax(220px,1fr));
-
-    gap:30px;
-}
-
-.location-card{
-
-    padding:30px;
-
-    border:1px solid var(--line);
-
-    border-radius:18px;
-
-    transition:.3s;
-}
-
-.location-card:hover{
-
-    transform:translateY(-5px);
-}
-
-.location-card h3{
-
-    margin-bottom:15px;
-
-    font-family:'Cormorant Garamond',serif;
-
-    font-size:2rem;
-}
-
-/* ==================================================
-   FUTURAS VIAGENS
-================================================== */
+/* PASSPORT */
 
 .passport-grid{
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(auto-fit,minmax(260px,1fr));
-
-    gap:30px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
 }
 
 .stamp{
-
-    background:white;
-
-    padding:35px;
-
-    border-radius:20px;
-
-    box-shadow:var(--shadow);
-
-    text-align:center;
+background:white;
+padding:40px;
+border-radius:24px;
+text-align:center;
 }
 
-.stamp h3{
-
-    font-family:'Cormorant Garamond',serif;
-
-    font-size:2rem;
-
-    margin-bottom:10px;
-}
-
-.countdown{
-
-    margin-top:15px;
-
-    color:var(--gold);
-
-    font-weight:600;
-}
-
-/* ==================================================
-   EPÍLOGO
-================================================== */
+/* EPILOGUE */
 
 #epilogue{
-
-    min-height:100vh;
-
-    position:relative;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    overflow:hidden;
+position:relative;
+height:100vh;
 }
 
 #epilogue img{
-
-    position:absolute;
-
-    width:100%;
-    height:100%;
-
-    object-fit:cover;
-
-    filter:brightness(.45);
+width:100%;
+height:100%;
+object-fit:cover;
+filter:brightness(.45);
 }
 
 .epilogue-text{
-
-    position:relative;
-
-    z-index:2;
-
-    color:white;
-
-    text-align:center;
-
-    max-width:700px;
+position:absolute;
+inset:0;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+color:white;
 }
 
-.epilogue-text p{
+/* FINAL */
 
-    font-size:1.4rem;
-
-    margin-bottom:12px;
+#final{
+background:black;
+color:white;
+min-height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
 }
 
-.epilogue-text span{
-
-    display:block;
-
-    margin-top:40px;
-
-    font-size:3rem;
+#final h1{
+font-family:'Cormorant Garamond',serif;
+font-size:6rem;
 }
 
-/* ==================================================
-   FINAL
-================================================== */
-
-#ending{
-
-    background:black;
-
-    color:white;
-
-    min-height:100vh;
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-    align-items:center;
-
-    text-align:center;
-}
-
-#ending h2{
-
-    font-family:'Cormorant Garamond',serif;
-
-    font-size:3rem;
-
-    font-weight:300;
-
-    opacity:.8;
-
-    margin-bottom:30px;
-}
-
-#ending h1{
-
-    font-family:'Cormorant Garamond',serif;
-
-    font-size:6rem;
-
-    font-weight:500;
-}
-
-/* ==================================================
-   RESPONSIVO
-================================================== */
+/* RESPONSIVO */
 
 @media(max-width:900px){
 
-    .hero-overlay h1{
+#chapter-nav{
+display:none;
+}
 
-        font-size:4rem;
-    }
+.hero-overlay h1{
+font-size:3.8rem;
+}
 
-    .hero-overlay blockquote{
+.book-page{
+grid-template-columns:1fr;
+}
 
-        font-size:1.4rem;
-    }
+.travel-stop{
+grid-template-columns:1fr;
+}
 
-    .chapter-header h2{
+.quote-page blockquote{
+font-size:2.4rem;
+}
 
-        font-size:3rem;
-    }
+#final h1{
+font-size:3rem;
+}
 
-    .date-page{
-
-        grid-template-columns:1fr;
-    }
-
-    .quote-page blockquote{
-
-        font-size:2.5rem;
-    }
-
-    #ending h1{
-
-        font-size:3.5rem;
-    }
-
-    .letter{
-
-        padding:40px;
-    }
-
-    #music-player{
-
-        width:90%;
-        right:5%;
-    }
 }
