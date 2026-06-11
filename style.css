@@ -21,64 +21,25 @@ font-family:'Inter',sans-serif;
 background:var(--bg);
 color:var(--text);
 overflow-x:hidden;
-line-height:1.8;
+line-height:1.9;
+font-size:20px;
 }
 
-/* INTRO */
-
-#intro-screen{
-position:fixed;
-inset:0;
-background:#000;
-z-index:999999;
-display:flex;
-justify-content:center;
-align-items:center;
-color:white;
-}
-
-.intro-content{
-text-align:center;
-}
-
-.intro-content h1{
-font-family:'Cormorant Garamond',serif;
-font-size:5rem;
-font-weight:500;
-}
-
-/* MENU */
-
-#chapter-nav{
-position:fixed;
-left:25px;
-top:50%;
-transform:translateY(-50%);
-z-index:999;
-display:flex;
-flex-direction:column;
-gap:12px;
-}
-
-#chapter-nav a{
-text-decoration:none;
-color:#777;
-font-size:.85rem;
+p{
+font-size:1.15rem;
 }
 
 /* HERO */
 
 #hero{
-height:100vh;
+height:100svh;
 position:relative;
-overflow:hidden;
 }
 
 #hero img{
 width:100%;
 height:100%;
 object-fit:cover;
-filter:brightness(.65);
 }
 
 .hero-overlay{
@@ -88,9 +49,14 @@ display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
-color:white;
 text-align:center;
 padding:30px;
+background:linear-gradient(
+to top,
+rgba(0,0,0,.55),
+rgba(0,0,0,.15)
+);
+color:white;
 }
 
 .hero-overlay h1{
@@ -121,9 +87,11 @@ margin-bottom:30px;
 
 .letter{
 background:white;
-padding:60px;
+padding:50px;
 border-radius:24px;
-box-shadow:0 20px 50px rgba(0,0,0,.08);
+box-shadow:0 15px 35px rgba(0,0,0,.08);
+max-width:850px;
+margin:auto;
 }
 
 /* DATE PAGES */
@@ -152,11 +120,20 @@ bottom:20px;
 opacity:.4;
 }
 
+.date-page{
+max-width:850px;
+margin:80px auto;
+padding:60px;
+background:white;
+border-radius:24px;
+box-shadow:0 15px 35px rgba(0,0,0,.06);
+}
+
 /* CALENDAR */
 
 .calendar-section{
-    max-width:700px;
-    margin:100px auto;
+    max-width:900px;
+    margin:120px auto;
     padding:50px;
     background:#f6f0e4;
     border:1px solid #d8cbb0;
@@ -189,6 +166,7 @@ opacity:.4;
 .calendar-day.active{
     background:#6d1f2b;
     color:white;
+    transform:scale(1.08);
     font-weight:600;
 }
 
@@ -196,8 +174,8 @@ opacity:.4;
 
 .polaroid-wall{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:40px;
+grid-template-columns:repeat(2,1fr);
+gap:25px;
 }
 
 .polaroid{
@@ -231,8 +209,9 @@ padding:40px;
 
 .quote-page blockquote{
 font-family:'Cormorant Garamond',serif;
-font-size:4rem;
-max-width:900px;
+font-size:clamp(3rem,7vw,5rem);
+max-width:1000px;
+line-height:1.2;
 }
 
 /* QUOTE EMOTIONAL */
@@ -254,10 +233,10 @@ max-width:900px;
 
 .travel-stop{
 display:grid;
-grid-template-columns:1fr 1fr;
-gap:40px;
+grid-template-columns:45% 55%;
+gap:50px;
 align-items:center;
-margin:80px 0;
+margin:120px 0;
 }
 
 .travel-stop img{
@@ -299,9 +278,11 @@ position:absolute;
 inset:0;
 display:flex;
 flex-direction:column;
-justify-content:center;
+justify-content:flex-end;
 align-items:center;
+padding-bottom:120px;
 color:white;
+text-align:center;
 }
 
 /* FINAL */
@@ -326,15 +307,31 @@ font-size:6rem;
 
 @media(max-width:900px){
 
-#chapter-nav{
-display:none;
+body{
+font-size:18px;
+}
+
+.chapter{
+padding:80px 20px;
 }
 
 .hero-overlay h1{
-font-size:3.8rem;
+font-size:3rem;
 }
 
-.book-page{
+.hero-overlay blockquote{
+font-size:1.3rem;
+}
+
+.chapter h2{
+font-size:2.4rem;
+}
+
+.date-page{
+padding:35px;
+}
+
+.polaroid-wall{
 grid-template-columns:1fr;
 }
 
@@ -343,11 +340,14 @@ grid-template-columns:1fr;
 }
 
 .quote-page blockquote{
-font-size:2.4rem;
+font-size:2.5rem;
 }
 
 #final h1{
 font-size:3rem;
 }
 
+iframe{
+height:90px;
+}
 }
