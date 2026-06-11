@@ -235,6 +235,21 @@ font-size:4rem;
 max-width:900px;
 }
 
+/* QUOTE EMOTIONAL */
+
+.emotional-page{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+.emotional-page p{
+    font-size:clamp(2rem,4vw,4rem);
+    line-height:1.3;
+    font-family:'Cormorant Garamond',serif;
+}
 /* TRAVEL */
 
 .travel-stop{
