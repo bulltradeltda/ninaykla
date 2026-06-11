@@ -244,6 +244,21 @@ width:100%;
 border-radius:20px;
 }
 
+/* FRIEND */
+
+.friend-grid{
+display:grid;
+grid-template-columns:45% 55%;
+gap:50px;
+align-items:center;
+margin:120px 0;
+}
+
+.friend-grid img{
+width:100%;
+border-radius:20px;
+}
+
 /* PASSPORT */
 
 .passport-grid{
