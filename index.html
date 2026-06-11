@@ -1,529 +1,629 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Um Ano</title>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Marina & Klaus</title>
-
-<link rel="stylesheet" href="style.css">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Caveat:wght@400;500&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- HERO -->
+    <!-- HERO -->
 
-<header class="hero">
+    <section class="hero">
 
-    <img src="fotos/capa.jpg" class="hero-image">
+        <div class="hero-overlay"></div>
 
-    <div class="hero-overlay"></div>
+        <img src="img/elevador.jpg" alt="Elevador">
 
-    <div class="hero-content" id="heroContent">
+        <div class="hero-content">
 
-        <span class="hero-date">
-            12 Junho 2026
+            <h1>UM ANO</h1>
+
+            <p>
+                Algumas pessoas levam anos para construir uma história.
+                <br>
+                A nossa resolveu acontecer rápido.
+            </p>
+
+            <button id="startButton">
+                Começar a história
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- DATE COUNTER -->
+
+    <section class="counter">
+
+        <div class="container">
+
+            <h2>Quanto tempo já vivemos juntos</h2>
+
+            <div id="daysTogether"></div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CHAPTER 1 -->
+
+    ```html
+<section class="chapter dates-chapter">
+
+    <div class="container">
+
+        <span class="chapter-number">
+            Capítulo 01
         </span>
-
-        <h1>
-            Marina & Klaus
-        </h1>
-
-        <p class="subtitle">
-            Nosso Primeiro Dia dos Namorados
-        </p>
-
-        <p class="hero-text">
-           De muitos que virão
-        </p>
-
-        <div class="scroll-indicator">
-            ↓
-        </div>
-
-    </div>
-
-</header>
-
-<!-- MÚSICA -->
-
-<section class="section music">
-
-    <span class="section-tag">
-        Trilha Sonora
-    </span>
-
-    <h2>
-        Un Año
-    </h2>
-
-    <p class="music-caption">
-        Algumas músicas acabam virando lembranças.
-    </p>
-
-    <div class="spotify-container">
-
-        <div class="spotify-container">
-
-        <iframe
-        style="border-radius:16px"
-        src="https://open.spotify.com/embed/track/2vrpcQNg6itmgVZWsNjWe0"
-        width="100%"
-        height="152"
-        frameborder="0"
-        allowfullscreen=""
-        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-        loading="lazy">
-        </iframe>
-
-    </div>
-
-    </div>
-
-</section>
-
-<!-- CONTADOR -->
-
-<section class="section counter-section">
-
-    <div class="counter-wrapper">
-
-        <div id="contadorDias" class="counter-number">
-            0
-        </div>
-
-        <div class="counter-label">
-            dias
-        </div>
-
-    </div>
-
-    <div class="relationship-stats">
-
-        <div>
-            <strong>2</strong>
-            países
-        </div>
-
-        <div>
-            <strong>5</strong>
-            cidades
-        </div>
-
-        <div>
-            <strong>∞</strong>
-            planos
-        </div>
-
-    </div>
-
-</section>
-
-<!-- CARTA -->
-
-<section class="section letter-section">
-
-    <span class="section-tag">
-        Carta
-    </span>
-
-    <h2>
-        O que mudou desde que te conheci
-    </h2>
-
-    <div class="letter">
-
-        <p>Marina,</p>
-
-        <p>
-            É engraçado pensar que, antes de te conhecer,
-            eu já tinha meus planos, minha rotina e minhas ideias de como as coisas seriam.
-        </p>
-
-        <p>
-            E então você apareceu.
-        </p>
-
-        <p>
-            Não de um jeito que virou tudo de cabeça para baixo.
-            Mas de um jeito muito melhor.
-        </p>
-
-        <p>
-            Você foi ocupando espaço aos poucos.
-        </p>
-
-        <p>
-            Nas conversas.
-            Nos cafés.
-            Nas viagens.
-            Nos domingos.
-        </p>
-
-        <p>
-            Quando percebi, já não imaginava muitas coisas sem pensar em você junto.
-        </p>
-
-        <p>
-            As cidades ficaram mais interessantes.
-            As viagens mais divertidas.
-            E os dias comuns mais especiais.
-        </p>
-
-        <p>
-            Porque passaram a ser compartilhados contigo.
-        </p>
-
-        <p>
-            E essa continua sendo uma das minhas coisas favoritas sobre você.
-        </p>
-
-    </div>
-
-</section>
-
-<!-- TIMELINE -->
-
-<section class="section">
-
-    <span class="section-tag">
-        Nossa História
-    </span>
-
-    <h2>
-        Capítulos
-    </h2>
-
-    <div class="timeline">
-
-        <div class="timeline-item">
-            Novembro 2025 ❤️
-        </div>
-
-        <div class="timeline-item">
-            Buenos Aires 🇦🇷
-        </div>
-
-        <div class="timeline-item">
-            Bento Gonçalves 🍷
-        </div>
-
-        <div class="timeline-item">
-            Xangri-lá 🌊
-        </div>
-
-        <div class="timeline-item">
-            Chile 🇨🇱
-        </div>
-
-        <div class="timeline-item">
-            Rio de Janeiro 🇧🇷
-        </div>
-
-    </div>
-
-</section>
-
-<!-- BUENOS AIRES -->
-
-<section class="full-photo">
-
-    <img src="fotos/buenosaires-caminito.jpg">
-
-</section>
-
-<section class="travel-text-block">
-
-    <h2>
-        Buenos Aires
-    </h2>
-
-    <p>
-        Nossa primeira aventura internacional.
-    </p>
-
-    <p>
-        Muitas caminhadas.
-        Muito vinho.
-        Muitas fotos.
-    </p>
-
-    <p>
-        E nenhum momento em que eu não estivesse feliz por estar ali contigo.
-    </p>
-
-</section>
-
-<section class="photo-strip">
-
-    <img src="fotos/buenosaires-floralis.jpg">
-
-    <img src="fotos/buenosaires-elevador.jpg">
-
-</section>
-
-<!-- BENTO -->
-
-<section class="full-photo">
-
-    <img src="fotos/bento-2.jpg">
-
-</section>
-
-<section class="travel-text-block">
-
-    <h2>
-        Bento Gonçalves
-    </h2>
-
-    <p>
-        Um daqueles lugares que parecem cena de filme.
-    </p>
-
-    <p>
-        E por sorte nós estávamos nele juntos.
-    </p>
-
-</section>
-
-<!-- XANGRILÁ -->
-
-<section class="full-photo">
-
-    <img src="fotos/xangrila.jpg">
-
-</section>
-
-<section class="travel-text-block">
-
-    <h2>
-        Xangri-lá
-    </h2>
-
-    <p>
-        Alguns finais de tarde mereciam ficar guardados para sempre.
-    </p>
-
-</section>
-
-<!-- ROTINA -->
-
-<section class="section">
-
-    <span class="section-tag">
-        Pequenas Coisas
-    </span>
-
-    <h2>
-        A vida entre as viagens
-    </h2>
-
-</section>
-
-<section class="polaroid-grid">
-
-    <div class="polaroid">
-        <img src="fotos/rotina-cama.jpg">
-        <span>Domingos comuns</span>
-    </div>
-
-    <div class="polaroid">
-        <img src="fotos/rotina-elevador.jpg">
-        <span>Pós corrida</span>
-    </div>
-
-    <div class="polaroid">
-        <img src="fotos/gremio.jpg">
-        <span>Prioridades alinhadas</span>
-    </div>
-
-</section>
-
-<!-- PETS -->
-
-<section class="section">
-
-    <span class="section-tag">
-        Família
-    </span>
-
-    <h2>
-        Cora & Cody
-    </h2>
-
-</section>
-
-<section class="pet-grid">
-
-    <div class="pet-card">
-
-        <img src="fotos/cora.jpg">
-
-        <p>
-            Algumas partes da nossa história têm quatro patas.
-        </p>
-
-    </div>
-
-    <div class="pet-card">
-
-        <img src="fotos/cody.jpg">
-
-        <p>
-            E personalidade suficiente para dominar a casa inteira.
-        </p>
-
-    </div>
-
-</section>
-
-<!-- AVÓ -->
-
-<section class="memory-section">
-
-    <img src="fotos/avo.jpg">
-
-    <h2>
-        Pessoas Importantes
-    </h2>
-
-    <p>
-        Algumas memórias ficam especiais pelos lugares.
-        Outras pelas pessoas que estavam conosco.
-    </p>
-
-</section>
-
-<!-- CARTA FINAL -->
-
-<section class="section letter-section">
-
-    <span class="section-tag">
-        Futuro
-    </span>
-
-    <h2>
-        O que espero viver contigo
-    </h2>
-
-    <div class="letter">
-
-        <p>
-            Quando olho para trás, gosto de tudo que construímos até aqui.
-        </p>
-
-        <p>
-            Mas o que mais me anima é olhar para frente.
-        </p>
-
-        <p>
-            Ainda temos viagens para fazer.
-            Fotos para tirar.
-            Lugares para descobrir.
-        </p>
-
-        <p>
-            Em alguns meses estaremos no Chile.
-            Depois no Rio.
-        </p>
-
-        <p>
-            Mas para ser sincero:
-            nunca foi sobre os lugares.
-        </p>
-
-        <p>
-            O que faz cada viagem valer a pena é dividir ela contigo.
-        </p>
-
-        <p>
-            Espero continuar encontrando novos caminhos contigo.
-        </p>
-
-    </div>
-
-</section>
-
-<!-- FUTURO -->
-
-<section class="future-section">
-
-    <div class="future-card">
-
-        <h3>🇨🇱 Chile</h3>
-
-        <p>
-            Julho 2026
-        </p>
-
-        <span>
-            Faltam <strong id="diasChile"></strong> dias
-        </span>
-
-    </div>
-
-    <div class="future-card">
-
-        <h3>🇧🇷 Rio de Janeiro</h3>
-
-        <p>
-            Setembro 2026
-        </p>
-
-        <span>
-            Faltam <strong id="diasRio"></strong> dias
-        </span>
-
-    </div>
-
-</section>
-
-<!-- FOTO FINAL -->
-
-<section class="final-photo">
-
-    <img src="fotos/aniversario.jpg">
-
-</section>
-
-<!-- FOOTER -->
-
-<footer class="ending">
-
-    <div class="ending-overlay"></div>
-
-    <div class="ending-content">
 
         <h2>
-            Continua...
+            Os Nossos 10 Primeiros Dates
         </h2>
 
-        <p>
-            Entre viagens,
-            cafés,
-            corridas,
-            domingos comuns,
-            a Cora,
-            o Cody,
-            e tudo que vivemos até aqui,
-            a melhor parte continua sendo você.
+        <p class="chapter-intro">
+            Algumas histórias começam devagar.
+            A nossa resolveu acelerar desde o primeiro capítulo.
         </p>
 
-        <span>
-            Atualizado continuamente desde 17 de novembro de 2025.
-        </span>
+        <div class="dates-timeline">
 
-    </div>
+            <div class="date-card">
 
-</footer>
+                <div class="date-header">
+                    <span class="date-day">17</span>
+                    <span class="date-month">NOV 2025</span>
+                </div>
 
-<script src="script.js"></script>
+                <div class="date-content">
+
+                    <h3>Date #01 — A Primeira Página</h3>
+
+                    <p>
+                        Tudo começou de forma simples.
+                    </p>
+
+                    <p>
+                        Uma pizza no Brás, na CEO Slice, algumas conversas e a sensação de que o tempo estava passando rápido demais.
+                    </p>
+
+                    <p>
+                        Depois fomos para a tua casa e, naquele mesmo dia, conheci a Cora.
+                    </p>
+
+                    <p>
+                        Eu ainda não sabia, mas estava entrando em um lugar que logo passaria a parecer familiar.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="date-card">
+
+                <div class="date-header">
+                    <span class="date-day">18</span>
+                    <span class="date-month">NOV 2025</span>
+                </div>
+
+                <div class="date-content">
+
+                    <h3>Date #02 — Quando Ficar Parecia Fácil</h3>
+
+                    <p>
+                        No dia seguinte já parecia estranho ficar longe.
+                    </p>
+
+                    <p>
+                        Fui para a tua casa, assistimos Tremembé, tomamos vinho e passamos horas conversando.
+                    </p>
+
+                    <p>
+                        Foi uma daquelas noites que começam sem grandes planos e terminam se tornando uma lembrança que fica para sempre.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="date-card">
+
+                <div class="date-header">
+                    <span class="date-day">24</span>
+                    <span class="date-month">NOV 2025</span>
+                </div>
+
+                <div class="date-content">
+
+                    <h3>Date #03 — O Reencontro</h3>
+
+                    <p>
+                        Depois de alguns dias da tua viagem, veio o reencontro.
+                    </p>
+
+                    <p>
+                        Pedimos o smash do Foglia e colocamos as conversas em dia.
+                    </p>
+
+                    <p>
+                        Foi a primeira vez que senti que alguns dias longe já eram dias demais.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="date-card">
+
+                <div class="date-header">
+                    <span class="date-day">28</span>
+                    <span class="date-month">NOV 2025</span>
+                </div>
+
+                <div class="date-content">
+
+                    <h3>Date #04 — Planos Para o Dia Seguinte</h3>
+
+                    <p>
+                        Saímos para jantar no The Chefs.
+                    </p>
+
+                    <p>
+                        Entre poke, cerveja e conversas, tu comprou sfoglia para o café da manhã do dia seguinte.
+                    </p>
+
+                    <p>
+                        Pela primeira vez já existia um amanhã nos nossos planos.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="date-card">
+
+                <div class="date-header">
+                    <span class="date-day">30</span>
+                    <span class="date-month">NOV 2025</span>
+                </div>
+
+                <div class="date-content">
+
+                    <h3>Date #05 — Pequenas Coisas</h3>
+
+                    <p>
+                        Tu praticamente me intimou a ir deitar contigo durante a tarde.
+                    </p>
+
+                    <p>
+                        Jantamos, pedimos sushi e passamos mais uma noite juntos.
+                    </p>
+
+                    <p>
+                        Pequeno para o mundo.
+                        Enorme para mim.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="date-card">
+
+                <div class="date-header">
+                    <span class="date-day">02</span>
+                    <span class="date-month">DEZ 2025</span>
+                </div>
+
+                <div class="date-content">
+
+                    <h3>Date #06 — Conhecendo o Teu Mundo</h3>
+
+                    <p>
+                        Era um dia importante para ti.
+                    </p>
+
+                    <p>
+                        A apresentação final de um trabalho.
+                    </p>
+
+                    <p>
+                        Pela primeira vez comecei a enxergar um pouco mais do teu mundo.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="date-card">
+
+                <div class="date-header">
+                    <span class="date-day">04</span>
+                    <span class="date-month">DEZ 2025</span>
+                </div>
+
+                <div class="date-content">
+
+                    <h3>Date #07 — Confiança</h3>
+
+                    <p>
+                        Foi o dia em que dividimos uma verdade importante um com o outro.
+                    </p>
+
+                    <p>
+                        Não foi apenas mais um encontro.
+                    </p>
+
+                    <p>
+                        Foi o dia em que escolhemos confiar de verdade.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="date-card">
+
+                <div class="date-header">
+                    <span class="date-day">05</span>
+                    <span class="date-month">DEZ 2025</span>
+                </div>
+
+                <div class="date-content">
+
+                    <h3>Date #08 — Sem Precisar de Muito</h3>
+
+                    <p>
+                        Apenas nós dois, uma pizza da Ferradura e uma noite tranquila.
+                    </p>
+
+                    <p>
+                        Foi quando percebi que não eram os lugares que faziam os encontros especiais.
+                    </p>
+
+                    <p>
+                        Era a tua companhia.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="date-card">
+
+                <div class="date-header">
+                    <span class="date-day">06</span>
+                    <span class="date-month">DEZ 2025</span>
+                </div>
+
+                <div class="date-content">
+
+                    <h3>Date #09 — As Nossas Vidas Se Misturando</h3>
+
+                    <p>
+                        Aos poucos, nossas vidas deixavam de andar em paralelo.
+                    </p>
+
+                    <p>
+                        Cada pessoa apresentada parecia um convite silencioso para permanecer.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="date-card">
+
+                <div class="date-header">
+                    <span class="date-day">09</span>
+                    <span class="date-month">DEZ 2025</span>
+                </div>
+
+                <div class="date-content">
+
+                    <h3>Date #10 — Um Novo Lar</h3>
+
+                    <p>
+                        Tu conheceu o meu apartamento novo.
+                    </p>
+
+                    <p>
+                        Pela primeira vez te levei para um lugar que eu estava começando a chamar de casa.
+                    </p>
+
+                    <p>
+                        E, sem perceber, ele começou a ficar com mais cara de lar quando tu estava lá.
+                    </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- TRANSITION -->
+
+    <section class="quote-section">
+
+        <p>
+            Em algum momento,
+            <br>
+            os encontros deixaram de parecer encontros.
+        </p>
+
+    </section>
+
+
+    <!-- CHAPTER 2 -->
+
+    <section class="chapter">
+
+        <div class="container">
+
+            <span class="chapter-number">
+                Capítulo 02
+            </span>
+
+            <h2>
+                As Primeiras Vezes
+            </h2>
+
+            <div class="memory-grid">
+
+                <div class="memory-card">
+                    ✈️ Primeira viagem
+                </div>
+
+                <div class="memory-card">
+                    🎬 Primeiro cinema
+                </div>
+
+                <div class="memory-card">
+                    ☕ Primeiro café
+                </div>
+
+                <div class="memory-card">
+                    🍷 Primeiro jantar
+                </div>
+
+                <div class="memory-card">
+                    👰 Primeiro casamento
+                </div>
+
+                <div class="memory-card">
+                    🐶 Primeiro encontro com Cody
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CHAPTER 3 -->
+
+    <section class="chapter dark">
+
+        <div class="container">
+
+            <span class="chapter-number">
+                Capítulo 03
+            </span>
+
+            <h2>
+                As Pessoas
+            </h2>
+
+            <p class="big-text">
+
+                Você não entrou apenas na minha vida.
+
+                <br><br>
+
+                Entrou na vida das pessoas
+                que eu mais amo.
+
+            </p>
+
+            <div class="gallery">
+
+                <img src="img/avo.jpg">
+                <img src="img/amigos.jpg">
+                <img src="img/casamento.jpg">
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- TRANSITION -->
+
+    <section class="quote-section">
+
+        <p>
+            Sem perceber,
+            <br>
+            começamos a construir uma vida.
+        </p>
+
+    </section>
+
+
+    <!-- CHAPTER 4 -->
+
+    <section class="chapter">
+
+        <div class="container">
+
+            <span class="chapter-number">
+                Capítulo 04
+            </span>
+
+            <h2>
+                Em Qualquer Lugar
+            </h2>
+
+            <div class="photo-mosaic">
+
+                <img src="img/cinema.jpg">
+                <img src="img/aeroporto.jpg">
+                <img src="img/pizza.jpg">
+                <img src="img/cafe.jpg">
+                <img src="img/sofa.jpg">
+                <img src="img/carnaval.jpg">
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CHAPTER 5 -->
+
+    <section class="chapter">
+
+        <div class="container">
+
+            <span class="chapter-number">
+                Capítulo 05
+            </span>
+
+            <h2>
+                Coisas Que Eu Amo Em Você
+            </h2>
+
+            <div class="qualities">
+
+                <div>
+                    O jeito que você sorri.
+                </div>
+
+                <div>
+                    Como transforma café em programa.
+                </div>
+
+                <div>
+                    Como trata minha família.
+                </div>
+
+                <div>
+                    Como faz qualquer lugar parecer divertido.
+                </div>
+
+                <div>
+                    Como faz eu me sentir em casa.
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CHAPTER 6 -->
+
+    <section class="chapter music">
+
+        <div class="container">
+
+            <span class="chapter-number">
+                Capítulo 06
+            </span>
+
+            <h2>
+                Nossa Trilha Sonora
+            </h2>
+
+            <div class="playlist">
+
+                <div class="song">
+                    Un Año
+                </div>
+
+                <div class="song">
+                    So Easy
+                </div>
+
+                <div class="song">
+                    I've Seen It
+                </div>
+
+                <div class="song">
+                    Clone
+                </div>
+
+                <div class="song">
+                    Si Antes Te Hubiera Conocido
+                </div>
+
+                <div class="song">
+                    Sequência Feiticeira
+                </div>
+
+                <div class="song">
+                    Baile Inolvidable
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FINAL -->
+
+    <section class="ending">
+
+        <img src="img/por-do-sol.jpg" alt="Final">
+
+        <div class="ending-overlay"></div>
+
+        <div class="ending-content">
+
+            <h2>
+                Obrigado por todos os lugares.
+            </h2>
+
+            <p>
+                Obrigado por todas as pessoas.
+                <br>
+                Obrigado por todas as memórias.
+                <br>
+                Obrigado por escolher viver tudo isso comigo.
+            </p>
+
+            <span class="continua">
+                Continua...
+            </span>
+
+        </div>
+
+    </section>
+
+
+    <!-- AUDIO -->
+
+    <audio id="bgMusic" loop>
+        <source src="audio/un-ano.mp3" type="audio/mp3">
+    </audio>
+
+    <script src="script.js"></script>
 
 </body>
 </html>
