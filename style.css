@@ -67,14 +67,19 @@ transform:scale(1.08);
 }
 
 .hero-overlay{
+
 position:absolute;
 inset:0;
 background:
 linear-gradient(
 180deg,
-rgba(0,0,0,.20),
-rgba(0,0,0,.65)
+rgba(0,0,0,.10),
+rgba(0,0,0,.45)
 );
+
+backdrop-filter:
+brightness(.95);
+
 }
 
 .hero-content{
@@ -84,6 +89,7 @@ text-align:center;
 color:white;
 padding:30px;
 max-width:700px;
+transform:translateY(-120px);
 }
 
 .hero-date{
