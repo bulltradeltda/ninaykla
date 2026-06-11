@@ -1,67 +1,111 @@
-/* ==================================================
+/* =====================================
    MARINA & KLAUS
    SCRIPT PREMIUM
-================================================== */
+===================================== */
 
-/* ==========================
-   CONTADOR DE LEITURA
-========================== */
+/* INTRO CINEMATOGRÁFICA */
 
-const progressBar = document.createElement("div");
+window.addEventListener("load", () => {
 
-progressBar.id = "reading-progress";
+    const intro = document.getElementById("intro-screen");
 
-document.body.appendChild(progressBar);
+    if (!intro) return;
+
+    setTimeout(() => {
+
+        intro.style.opacity = "0";
+
+        setTimeout(() => {
+
+            intro.style.display = "none";
+
+        }, 2000);
+
+    }, 3000);
+
+});
+
+/* =====================================
+   BARRA DE PROGRESSO
+===================================== */
+
+const progress = document.createElement("div");
+
+progress.id = "reading-progress";
+
+document.body.appendChild(progress);
 
 window.addEventListener("scroll", () => {
 
-    const scrollTop =
-        window.scrollY;
+    const scrollTop = window.scrollY;
 
     const docHeight =
         document.documentElement.scrollHeight -
         window.innerHeight;
 
-    const progress =
+    const percent =
         (scrollTop / docHeight) * 100;
 
-    progressBar.style.width =
-        progress + "%";
+    progress.style.width = percent + "%";
 
 });
 
-/* ==========================
-   FADE AO ENTRAR NA TELA
-========================== */
+/* =====================================
+   SCROLL SUAVE
+===================================== */
 
-const observer =
-new IntersectionObserver(
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
-(entries) => {
+    anchor.addEventListener("click", function (e) {
 
-entries.forEach(entry => {
+        e.preventDefault();
 
-    if(entry.isIntersecting){
+        const target =
+            document.querySelector(
+                this.getAttribute("href")
+            );
 
-        entry.target.classList.add("show");
+        if (target) {
 
+            target.scrollIntoView({
+                behavior: "smooth"
+            });
+
+        }
+
+    });
+
+});
+
+/* =====================================
+   ANIMAÇÕES DE ENTRADA
+===================================== */
+
+const observer = new IntersectionObserver(
+
+    (entries) => {
+
+        entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+                entry.target.classList.add("show");
+
+            }
+
+        });
+
+    },
+
+    {
+        threshold: 0.15
     }
-
-});
-
-},
-
-{
-threshold:0.15
-}
 
 );
 
-document
-.querySelectorAll(
-".chapter, .date-page, .polaroid, .stamp, .location-card"
-)
-.forEach(el => {
+document.querySelectorAll(
+    ".chapter,.book-page,.polaroid,.travel-stop,.stamp,.quote-page"
+).forEach(el => {
 
     el.classList.add("hidden");
 
@@ -69,84 +113,63 @@ document
 
 });
 
-/* ==========================
+/* =====================================
    PARALLAX CAPA
-========================== */
+===================================== */
 
 window.addEventListener("scroll", () => {
 
     const hero =
-    document.querySelector("#hero img");
+        document.querySelector("#hero img");
 
-    if(!hero) return;
-
-    const scroll =
-    window.pageYOffset;
-
-    hero.style.transform =
-    `translateY(${scroll * 0.25}px) scale(1.05)`;
-
-});
-
-/* ==========================
-   PARALLAX EPÍLOGO
-========================== */
-
-window.addEventListener("scroll", () => {
-
-    const epilogue =
-    document.querySelector("#epilogue img");
-
-    if(!epilogue) return;
-
-    const rect =
-    epilogue.getBoundingClientRect();
+    if (!hero) return;
 
     const offset =
-    rect.top * -0.08;
+        window.pageYOffset * 0.25;
 
-    epilogue.style.transform =
-    `translateY(${offset}px) scale(1.08)`;
+    hero.style.transform =
+        `translateY(${offset}px) scale(1.05)`;
 
 });
 
-/* ==========================
+/* =====================================
    CONTADORES DE VIAGEM
-========================== */
+===================================== */
 
-function countdown(id, dateString){
+function countdown(id, dateString) {
 
-    const el =
-    document.getElementById(id);
+    const element =
+        document.getElementById(id);
 
-    if(!el) return;
+    if (!element) return;
 
-    const future =
-    new Date(dateString);
+    const targetDate =
+        new Date(dateString);
 
-    function update(){
+    function update() {
 
         const now =
-        new Date();
+            new Date();
 
         const diff =
-        future - now;
+            targetDate - now;
 
-        if(diff <= 0){
+        if (diff <= 0) {
 
-            el.innerHTML =
-            "Estamos aqui ❤️";
+            element.innerHTML =
+                "Estamos aqui ❤️";
 
             return;
+
         }
 
         const days =
-        Math.floor(
-            diff / (1000 * 60 * 60 * 24)
-        );
+            Math.floor(
+                diff / (1000 * 60 * 60 * 24)
+            );
 
-        el.innerHTML =
-        `${days} dias`;
+        element.innerHTML =
+            `${days} dias`;
 
     }
 
@@ -157,233 +180,141 @@ function countdown(id, dateString){
 }
 
 countdown(
-"chileCountdown",
-"2026-07-16"
+    "chileCountdown",
+    "2026-07-16"
 );
 
 countdown(
-"rioCountdown",
-"2026-09-11"
+    "rioCountdown",
+    "2026-09-11"
 );
 
 countdown(
-"carnavalCountdown",
-"2027-02-05"
+    "carnavalCountdown",
+    "2027-02-05"
 );
 
 countdown(
-"equadorCountdown",
-"2027-06-13"
+    "equadorCountdown",
+    "2027-06-13"
 );
 
-/* ==========================
-   SCROLL SUAVE DA CAPA
-========================== */
+/* =====================================
+   BOTÃO "ABRIR LIVRO"
+===================================== */
 
-const scrollButton =
-document.querySelector(
-".scroll-indicator"
-);
+const scrollBtn =
+    document.querySelector(".scroll-indicator");
 
-if(scrollButton){
+if (scrollBtn) {
 
-scrollButton.addEventListener(
-"click",
-() => {
+    scrollBtn.addEventListener(
+        "click",
+        () => {
 
-    const nextSection =
-    document.querySelector(
-    ".prologue"
+            const next =
+                document.querySelector(".chapter");
+
+            if (next) {
+
+                next.scrollIntoView({
+                    behavior: "smooth"
+                });
+
+            }
+
+        }
     );
 
-    if(nextSection){
+}
 
-        nextSection.scrollIntoView({
-            behavior:"smooth"
+/* =====================================
+   DESTAQUE MENU LATERAL
+===================================== */
+
+const sections =
+    document.querySelectorAll(
+        "section[id]"
+    );
+
+const navLinks =
+    document.querySelectorAll(
+        "#chapter-nav a"
+    );
+
+window.addEventListener(
+    "scroll",
+    () => {
+
+        let current = "";
+
+        sections.forEach(section => {
+
+            const sectionTop =
+                section.offsetTop - 200;
+
+            if (
+                pageYOffset >= sectionTop
+            ) {
+                current = section.getAttribute("id");
+            }
+
+        });
+
+        navLinks.forEach(link => {
+
+            link.classList.remove("active");
+
+            if (
+                link.getAttribute("href") ===
+                "#" + current
+            ) {
+
+                link.classList.add("active");
+
+            }
+
         });
 
     }
-
-});
-
-}
-
-/* ==========================
-   MÚSICAS DOS CAPÍTULOS
-========================== */
-
-const songs = {
-
-cap1:{
-title:"Carta de abertura",
-artist:"Instrumental",
-src:"audio/instrumental.mp3"
-},
-
-cap2:{
-title:"So Easy",
-artist:"Olivia Dean",
-src:"audio/soeasy.mp3"
-},
-
-cap3:{
-title:"Un Año",
-artist:"Sebastián Yatra",
-src:"audio/unano.mp3"
-},
-
-cap4:{
-title:"I've Seen It",
-artist:"Olivia Dean",
-src:"audio/iveseenit.mp3"
-},
-
-cap5:{
-title:"Clone",
-artist:"Luan Santana",
-src:"audio/clone.mp3"
-},
-
-cap6:{
-title:"Baile Inolvidable",
-artist:"Bad Bunny",
-src:"audio/baileinolvidable.mp3"
-},
-
-cap7:{
-title:"Good Bad Ugly",
-artist:"Giveon",
-src:"audio/goodbadugly.mp3"
-},
-
-cap8:{
-title:"Viajando Por El Mundo",
-artist:"Karol G",
-src:"audio/viajando.mp3"
-},
-
-final:{
-title:"Que Nem Maré",
-artist:"Jorge Vercillo",
-src:"audio/quenimmare.mp3"
-}
-
-};
-
-/* ==========================
-   TROCA DE MÚSICA
-========================== */
-
-const audio =
-document.getElementById(
-"audio-player"
 );
 
-const songTitle =
-document.getElementById(
-"song-title"
-);
+/* =====================================
+   FRASE FINAL
+===================================== */
 
-const songArtist =
-document.getElementById(
-"song-artist"
-);
+const finalSection =
+    document.querySelector("#final");
 
-function changeSong(key){
+if (finalSection) {
 
-if(!songs[key]) return;
+    const finalObserver =
+        new IntersectionObserver(
 
-songTitle.textContent =
-songs[key].title;
+            (entries) => {
 
-songArtist.textContent =
-songs[key].artist;
+                entries.forEach(entry => {
 
-audio.src =
-songs[key].src;
+                    if (entry.isIntersecting) {
 
-}
+                        finalSection.classList.add(
+                            "active"
+                        );
 
-/* ==========================
-   OBSERVAR CAPÍTULOS
-========================== */
+                    }
 
-const chapterObserver =
-new IntersectionObserver(
+                });
 
-(entries)=>{
+            },
 
-entries.forEach(entry=>{
+            {
+                threshold: 0.5
+            }
 
-if(!entry.isIntersecting)
-return;
+        );
 
-const id =
-entry.target.id;
-
-if(id){
-
-changeSong(id);
-
-}
-
-});
-
-},
-
-{
-threshold:0.5
-}
-
-);
-
-/*
-IMPORTANTE:
-
-No HTML adicione:
-
-id="cap1"
-id="cap2"
-id="cap3"
-id="cap4"
-id="cap5"
-id="cap6"
-id="cap7"
-id="cap8"
-id="final"
-
-nos capítulos correspondentes.
-*/
-
-document
-.querySelectorAll(
-"#cap1,#cap2,#cap3,#cap4,#cap5,#cap6,#cap7,#cap8,#final"
-)
-.forEach(section => {
-
-chapterObserver.observe(
-section
-);
-
-});
-
-/* ==========================
-   MENSAGEM FINAL
-========================== */
-
-const ending =
-document.querySelector(
-"#ending"
-);
-
-if(ending){
-
-ending.addEventListener(
-"mouseenter",
-() => {
-
-changeSong("final");
-
-});
+    finalObserver.observe(
+        finalSection
+    );
 
 }
