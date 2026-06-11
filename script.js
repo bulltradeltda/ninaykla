@@ -135,16 +135,24 @@ document.querySelectorAll(
 // PARALLAX SUAVE HERO
 // =======================================
 
-window.addEventListener("scroll", () => {
+    window.addEventListener("scroll", () => {
+    const heroImage =
+        document.querySelector(".hero-image");
+    const heroContent =
+        document.querySelector("#heroContent");
+    const scroll =
+        window.pageYOffset;
+    if(heroImage){
+        heroImage.style.transform =
+        `translateY(${scroll * 0.18}px) scale(1.08)`;
+    }
 
-    const hero = document.querySelector(".hero-image");
+    if(heroContent){
 
-    if (!hero) return;
+        heroContent.style.transform =
+        `translateY(${-120 + scroll * 0.08}px)`;
 
-    const scroll = window.pageYOffset;
-
-    hero.style.transform =
-        `translateY(${scroll * 0.12}px) scale(1.08)`;
+    }
 
 });
 
