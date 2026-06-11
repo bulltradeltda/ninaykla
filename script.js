@@ -1,128 +1,67 @@
-// =======================================
-// MARINA & KLAUS
-// SCRIPT FINAL
-// =======================================
+/* ==================================================
+   MARINA & KLAUS
+   SCRIPT PREMIUM
+================================================== */
 
-// DATA DE INÍCIO
+/* ==========================
+   CONTADOR DE LEITURA
+========================== */
 
-const dataInicio = new Date("2025-11-17T00:00:00");
+const progressBar = document.createElement("div");
 
-// CONTADOR PRINCIPAL
+progressBar.id = "reading-progress";
 
-function atualizarContador() {
+document.body.appendChild(progressBar);
 
-    const agora = new Date();
+window.addEventListener("scroll", () => {
 
-    const diferenca = agora - dataInicio;
+    const scrollTop =
+        window.scrollY;
 
-    const dias = Math.floor(
-        diferenca / (1000 * 60 * 60 * 24)
-    );
+    const docHeight =
+        document.documentElement.scrollHeight -
+        window.innerHeight;
 
-    const contador = document.getElementById("contadorDias");
+    const progress =
+        (scrollTop / docHeight) * 100;
 
-    if (contador) {
-        contador.textContent = dias;
-    }
+    progressBar.style.width =
+        progress + "%";
 
-}
+});
 
-atualizarContador();
+/* ==========================
+   FADE AO ENTRAR NA TELA
+========================== */
 
-setInterval(atualizarContador, 60000);
-
-
-// =======================================
-// CHILE
-// =======================================
-
-const dataChile = new Date("2026-07-01T00:00:00");
-
-function atualizarChile() {
-
-    const elemento = document.getElementById("diasChile");
-
-    if (!elemento) return;
-
-    const agora = new Date();
-
-    const dias = Math.ceil(
-        (dataChile - agora) /
-        (1000 * 60 * 60 * 24)
-    );
-
-    elemento.textContent = dias > 0 ? dias : 0;
-
-}
-
-atualizarChile();
-
-
-// =======================================
-// RIO
-// =======================================
-
-const dataRio = new Date("2026-09-01T00:00:00");
-
-function atualizarRio() {
-
-    const elemento = document.getElementById("diasRio");
-
-    if (!elemento) return;
-
-    const agora = new Date();
-
-    const dias = Math.ceil(
-        (dataRio - agora) /
-        (1000 * 60 * 60 * 24)
-    );
-
-    elemento.textContent = dias > 0 ? dias : 0;
-
-}
-
-atualizarRio();
-
-
-// =======================================
-// ANIMAÇÕES AO ROLAR
-// =======================================
-
-const observer = new IntersectionObserver(
+const observer =
+new IntersectionObserver(
 
 (entries) => {
 
-    entries.forEach(entry => {
+entries.forEach(entry => {
 
-        if (entry.isIntersecting) {
+    if(entry.isIntersecting){
 
-            entry.target.classList.add("show");
+        entry.target.classList.add("show");
 
-        }
+    }
 
-    });
+});
 
 },
 
 {
-    threshold: 0.15
+threshold:0.15
 }
 
 );
 
-document.querySelectorAll(
-`
-.full-photo,
-.travel-text-block,
-.polaroid,
-.pet-card,
-.future-card,
-.memory-section,
-.timeline,
-.letter,
-.relationship-stats
-`
-).forEach(el => {
+document
+.querySelectorAll(
+".chapter, .date-page, .polaroid, .stamp, .location-card"
+)
+.forEach(el => {
 
     el.classList.add("hidden");
 
@@ -130,76 +69,321 @@ document.querySelectorAll(
 
 });
 
+/* ==========================
+   PARALLAX CAPA
+========================== */
 
-// =======================================
-// PARALLAX SUAVE HERO
-// =======================================
+window.addEventListener("scroll", () => {
 
-    window.addEventListener("scroll", () => {
-    const heroImage =
-        document.querySelector(".hero-image");
-    const heroContent =
-        document.querySelector("#heroContent");
+    const hero =
+    document.querySelector("#hero img");
+
+    if(!hero) return;
+
     const scroll =
-        window.pageYOffset;
-    if(heroImage){
-        heroImage.style.transform =
-        `translateY(${scroll * 0.18}px) scale(1.08)`;
+    window.pageYOffset;
+
+    hero.style.transform =
+    `translateY(${scroll * 0.25}px) scale(1.05)`;
+
+});
+
+/* ==========================
+   PARALLAX EPÍLOGO
+========================== */
+
+window.addEventListener("scroll", () => {
+
+    const epilogue =
+    document.querySelector("#epilogue img");
+
+    if(!epilogue) return;
+
+    const rect =
+    epilogue.getBoundingClientRect();
+
+    const offset =
+    rect.top * -0.08;
+
+    epilogue.style.transform =
+    `translateY(${offset}px) scale(1.08)`;
+
+});
+
+/* ==========================
+   CONTADORES DE VIAGEM
+========================== */
+
+function countdown(id, dateString){
+
+    const el =
+    document.getElementById(id);
+
+    if(!el) return;
+
+    const future =
+    new Date(dateString);
+
+    function update(){
+
+        const now =
+        new Date();
+
+        const diff =
+        future - now;
+
+        if(diff <= 0){
+
+            el.innerHTML =
+            "Estamos aqui ❤️";
+
+            return;
+        }
+
+        const days =
+        Math.floor(
+            diff / (1000 * 60 * 60 * 24)
+        );
+
+        el.innerHTML =
+        `${days} dias`;
+
     }
 
-    if(heroContent){
+    update();
 
-        heroContent.style.transform =
-        `translateY(${-120 + scroll * 0.08}px)`;
+    setInterval(update, 60000);
+
+}
+
+countdown(
+"chileCountdown",
+"2026-07-16"
+);
+
+countdown(
+"rioCountdown",
+"2026-09-11"
+);
+
+countdown(
+"carnavalCountdown",
+"2027-02-05"
+);
+
+countdown(
+"equadorCountdown",
+"2027-06-13"
+);
+
+/* ==========================
+   SCROLL SUAVE DA CAPA
+========================== */
+
+const scrollButton =
+document.querySelector(
+".scroll-indicator"
+);
+
+if(scrollButton){
+
+scrollButton.addEventListener(
+"click",
+() => {
+
+    const nextSection =
+    document.querySelector(
+    ".prologue"
+    );
+
+    if(nextSection){
+
+        nextSection.scrollIntoView({
+            behavior:"smooth"
+        });
 
     }
 
 });
 
+}
 
-// =======================================
-// TÍTULO APARECENDO
-// =======================================
+/* ==========================
+   MÚSICAS DOS CAPÍTULOS
+========================== */
 
-window.addEventListener("load", () => {
+const songs = {
 
-    const subtitle = document.querySelector(".subtitle");
+cap1:{
+title:"Carta de abertura",
+artist:"Instrumental",
+src:"audio/instrumental.mp3"
+},
 
-    if (!subtitle) return;
+cap2:{
+title:"So Easy",
+artist:"Olivia Dean",
+src:"audio/soeasy.mp3"
+},
 
-    subtitle.style.opacity = "0";
+cap3:{
+title:"Un Año",
+artist:"Sebastián Yatra",
+src:"audio/unano.mp3"
+},
 
-    setTimeout(() => {
+cap4:{
+title:"I've Seen It",
+artist:"Olivia Dean",
+src:"audio/iveseenit.mp3"
+},
 
-        subtitle.style.transition = "1.5s";
+cap5:{
+title:"Clone",
+artist:"Luan Santana",
+src:"audio/clone.mp3"
+},
 
-        subtitle.style.opacity = "1";
+cap6:{
+title:"Baile Inolvidable",
+artist:"Bad Bunny",
+src:"audio/baileinolvidable.mp3"
+},
 
-    }, 400);
+cap7:{
+title:"Good Bad Ugly",
+artist:"Giveon",
+src:"audio/goodbadugly.mp3"
+},
+
+cap8:{
+title:"Viajando Por El Mundo",
+artist:"Karol G",
+src:"audio/viajando.mp3"
+},
+
+final:{
+title:"Que Nem Maré",
+artist:"Jorge Vercillo",
+src:"audio/quenimmare.mp3"
+}
+
+};
+
+/* ==========================
+   TROCA DE MÚSICA
+========================== */
+
+const audio =
+document.getElementById(
+"audio-player"
+);
+
+const songTitle =
+document.getElementById(
+"song-title"
+);
+
+const songArtist =
+document.getElementById(
+"song-artist"
+);
+
+function changeSong(key){
+
+if(!songs[key]) return;
+
+songTitle.textContent =
+songs[key].title;
+
+songArtist.textContent =
+songs[key].artist;
+
+audio.src =
+songs[key].src;
+
+}
+
+/* ==========================
+   OBSERVAR CAPÍTULOS
+========================== */
+
+const chapterObserver =
+new IntersectionObserver(
+
+(entries)=>{
+
+entries.forEach(entry=>{
+
+if(!entry.isIntersecting)
+return;
+
+const id =
+entry.target.id;
+
+if(id){
+
+changeSong(id);
+
+}
 
 });
 
+},
 
-// =======================================
-// PRELOAD
-// =======================================
+{
+threshold:0.5
+}
 
-window.addEventListener("load", () => {
+);
 
-    document.body.classList.add("loaded");
+/*
+IMPORTANTE:
+
+No HTML adicione:
+
+id="cap1"
+id="cap2"
+id="cap3"
+id="cap4"
+id="cap5"
+id="cap6"
+id="cap7"
+id="cap8"
+id="final"
+
+nos capítulos correspondentes.
+*/
+
+document
+.querySelectorAll(
+"#cap1,#cap2,#cap3,#cap4,#cap5,#cap6,#cap7,#cap8,#final"
+)
+.forEach(section => {
+
+chapterObserver.observe(
+section
+);
 
 });
 
+/* ==========================
+   MENSAGEM FINAL
+========================== */
 
-// =======================================
-// CONSOLE
-// =======================================
+const ending =
+document.querySelector(
+"#ending"
+);
 
-console.log(`
-Marina & Klaus ❤️
+if(ending){
 
-Nosso Primeiro Capítulo
+ending.addEventListener(
+"mouseenter",
+() => {
 
-Atualizado continuamente
-desde 17/11/2025
-`);
+changeSong("final");
+
+});
+
+}
