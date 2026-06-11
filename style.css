@@ -95,9 +95,11 @@ margin-bottom:20px;
 }
 
 .hero h1{
-font-size:clamp(3.5rem,10vw,7rem);
+font-size:clamp(3rem,8vw,7rem);
 font-weight:500;
 margin-bottom:15px;
+white-space:nowrap;
+line-height:1;
 }
 
 .subtitle{
@@ -480,7 +482,8 @@ padding:80px 25px;
 }
 
 .hero h1{
-font-size:4rem;
+font-size:3.6rem;
+white-space:nowrap;
 }
 
 .subtitle{
