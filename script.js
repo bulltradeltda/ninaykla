@@ -1,320 +1,197 @@
-/* =====================================
-   MARINA & KLAUS
-   SCRIPT PREMIUM
-===================================== */
-
-/* INTRO CINEMATOGRÁFICA */
-
-window.addEventListener("load", () => {
-
-    const intro = document.getElementById("intro-screen");
-
-    if (!intro) return;
-
-    setTimeout(() => {
-
-        intro.style.opacity = "0";
-
-        setTimeout(() => {
-
-            intro.style.display = "none";
-
-        }, 2000);
-
-    }, 3000);
-
-});
-
-/* =====================================
-   BARRA DE PROGRESSO
-===================================== */
-
-const progress = document.createElement("div");
-
-progress.id = "reading-progress";
-
-document.body.appendChild(progress);
-
-window.addEventListener("scroll", () => {
-
-    const scrollTop = window.scrollY;
-
-    const docHeight =
-        document.documentElement.scrollHeight -
-        window.innerHeight;
-
-    const percent =
-        (scrollTop / docHeight) * 100;
-
-    progress.style.width = percent + "%";
-
-});
-
-/* =====================================
-   SCROLL SUAVE
-===================================== */
-
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-
-    anchor.addEventListener("click", function (e) {
-
-        e.preventDefault();
-
-        const target =
-            document.querySelector(
-                this.getAttribute("href")
-            );
-
-        if (target) {
-
-            target.scrollIntoView({
-                behavior: "smooth"
-            });
-
-        }
-
-    });
-
-});
-
-/* =====================================
-   ANIMAÇÕES DE ENTRADA
-===================================== */
+// =====================================
+// ANIMAÇÃO DE ENTRADA DOS CAPÍTULOS
+// =====================================
 
 const observer = new IntersectionObserver(
 
-    (entries) => {
+(entries) => {
 
-        entries.forEach(entry => {
+entries.forEach(entry => {
 
-            if (entry.isIntersecting) {
+if(entry.isIntersecting){
 
-                entry.target.classList.add("show");
+entry.target.classList.add("show");
 
-            }
+}
 
-        });
+});
 
-    },
+},
 
-    {
-        threshold: 0.15
-    }
+{
+threshold:0.15
+}
 
 );
 
 document.querySelectorAll(
-    ".chapter,.book-page,.polaroid,.travel-stop,.stamp,.quote-page"
+".chapter, .date-page, .polaroid, .travel-stop, .memory-item"
 ).forEach(el => {
 
-    el.classList.add("hidden");
+el.classList.add("hidden");
 
-    observer.observe(el);
+observer.observe(el);
 
 });
 
-/* =====================================
-   PARALLAX CAPA
-===================================== */
+// =====================================
+// PARALLAX SUAVE DA CAPA
+// =====================================
+
+const hero = document.querySelector("#hero img");
 
 window.addEventListener("scroll", () => {
 
-    const hero =
-        document.querySelector("#hero img");
+const y = window.scrollY;
 
-    if (!hero) return;
+if(hero){
 
-    const offset =
-        window.pageYOffset * 0.25;
+hero.style.transform =
+`scale(1.05) translateY(${y * 0.15}px)`;
 
-    hero.style.transform =
-        `translateY(${offset}px) scale(1.05)`;
+}
 
 });
 
-/* =====================================
-   CONTADORES DE VIAGEM
-===================================== */
+// =====================================
+// CONTAGEM REGRESSIVA
+// =====================================
 
-function countdown(id, dateString) {
+function updateCountdown(id, targetDate){
 
-    const element =
-        document.getElementById(id);
+const el = document.getElementById(id);
 
-    if (!element) return;
+if(!el) return;
 
-    const targetDate =
-        new Date(dateString);
+const now = new Date();
 
-    function update() {
+const target = new Date(targetDate);
 
-        const now =
-            new Date();
+const diff = target - now;
 
-        const diff =
-            targetDate - now;
+if(diff <= 0){
 
-        if (diff <= 0) {
+el.innerHTML = "Chegou! ✈️";
 
-            element.innerHTML =
-                "Estamos aqui ❤️";
-
-            return;
-
-        }
-
-        const days =
-            Math.floor(
-                diff / (1000 * 60 * 60 * 24)
-            );
-
-        element.innerHTML =
-            `${days} dias`;
-
-    }
-
-    update();
-
-    setInterval(update, 60000);
+return;
 
 }
 
-countdown(
-    "chileCountdown",
-    "2026-07-16"
-);
+const days =
+Math.floor(diff / (1000 * 60 * 60 * 24));
 
-countdown(
-    "rioCountdown",
-    "2026-09-11"
-);
-
-countdown(
-    "carnavalCountdown",
-    "2027-02-05"
-);
-
-countdown(
-    "equadorCountdown",
-    "2027-06-13"
-);
-
-/* =====================================
-   BOTÃO "ABRIR LIVRO"
-===================================== */
-
-const scrollBtn =
-    document.querySelector(".scroll-indicator");
-
-if (scrollBtn) {
-
-    scrollBtn.addEventListener(
-        "click",
-        () => {
-
-            const next =
-                document.querySelector(".chapter");
-
-            if (next) {
-
-                next.scrollIntoView({
-                    behavior: "smooth"
-                });
-
-            }
-
-        }
-    );
+el.innerHTML =
+`${days} dias`;
 
 }
 
-/* =====================================
-   DESTAQUE MENU LATERAL
-===================================== */
+function updateAllCountdowns(){
 
-const sections =
-    document.querySelectorAll(
-        "section[id]"
-    );
-
-const navLinks =
-    document.querySelectorAll(
-        "#chapter-nav a"
-    );
-
-window.addEventListener(
-    "scroll",
-    () => {
-
-        let current = "";
-
-        sections.forEach(section => {
-
-            const sectionTop =
-                section.offsetTop - 200;
-
-            if (
-                pageYOffset >= sectionTop
-            ) {
-                current = section.getAttribute("id");
-            }
-
-        });
-
-        navLinks.forEach(link => {
-
-            link.classList.remove("active");
-
-            if (
-                link.getAttribute("href") ===
-                "#" + current
-            ) {
-
-                link.classList.add("active");
-
-            }
-
-        });
-
-    }
+updateCountdown(
+"chileCountdown",
+"2026-07-16"
 );
 
-/* =====================================
-   FRASE FINAL
-===================================== */
+updateCountdown(
+"rioCountdown",
+"2026-09-11"
+);
+
+updateCountdown(
+"carnavalCountdown",
+"2027-02-05"
+);
+
+updateCountdown(
+"equadorCountdown",
+"2027-06-13"
+);
+
+}
+
+updateAllCountdowns();
+
+setInterval(
+updateAllCountdowns,
+60000
+);
+
+// =====================================
+// FINAL CINEMATOGRÁFICO
+// =====================================
 
 const finalSection =
-    document.querySelector("#final");
+document.querySelector("#final");
 
-if (finalSection) {
+if(finalSection){
 
-    const finalObserver =
-        new IntersectionObserver(
+const finalObserver =
+new IntersectionObserver(
 
-            (entries) => {
+(entries)=>{
 
-                entries.forEach(entry => {
+entries.forEach(entry=>{
 
-                    if (entry.isIntersecting) {
+if(entry.isIntersecting){
 
-                        finalSection.classList.add(
-                            "active"
-                        );
+const lines =
+document.querySelectorAll(".final-line");
 
-                    }
+const heart =
+document.querySelector(".heart");
 
-                });
+setTimeout(()=>{
 
-            },
+lines[0]?.classList.add("visible");
 
-            {
-                threshold: 0.5
-            }
+},800);
 
-        );
+setTimeout(()=>{
 
-    finalObserver.observe(
-        finalSection
-    );
+lines[1]?.classList.add("visible");
+
+},2500);
+
+setTimeout(()=>{
+
+heart?.classList.add("visible");
+
+},4500);
 
 }
+
+});
+
+},
+
+{
+threshold:0.5
+}
+
+);
+
+finalObserver.observe(finalSection);
+
+}
+
+// =====================================
+// SCROLL SUAVE
+// =====================================
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+
+anchor.addEventListener("click", function(e){
+
+e.preventDefault();
+
+document.querySelector(
+this.getAttribute("href")
+)?.scrollIntoView({
+
+behavior:"smooth"
+
+});
+
+});
+
+});
