@@ -1,10 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500&display=swap');
+
 :root{
---bg:#f6f2ea;
---paper:#fbf8f2;
---text:#232323;
---gold:#b79b63;
+
+--paper:#f8f3eb;
+--paper-dark:#efe7da;
+
+--text:#3a3128;
+
+--gold:#b5965a;
+
+--wine:#5b1520;
+
 --line:rgba(0,0,0,.08);
+
+--shadow:
+0 20px 50px rgba(0,0,0,.08);
+
 }
+
+/* RESET */
 
 *{
 margin:0;
@@ -17,294 +31,692 @@ scroll-behavior:smooth;
 }
 
 body{
-font-family:'Inter',sans-serif;
-background:var(--bg);
+
+background:var(--paper);
+
 color:var(--text);
-overflow-x:hidden;
-line-height:1.9;
+
+font-family:'Montserrat',sans-serif;
+
 font-size:20px;
+
+line-height:1.95;
+
+overflow-x:hidden;
+
 }
 
-p{
-font-size:1.15rem;
+/* TEXTURA PAPEL */
+
+body::before{
+
+content:"";
+
+position:fixed;
+
+inset:0;
+
+pointer-events:none;
+
+opacity:.035;
+
+background-image:
+radial-gradient(circle,#000 1px,transparent 1px);
+
+background-size:5px 5px;
+
+z-index:9999;
+
 }
 
 /* HERO */
 
 #hero{
+
 height:100svh;
+
 position:relative;
+
+overflow:hidden;
+
 }
 
 #hero img{
+
 width:100%;
+
 height:100%;
+
 object-fit:cover;
+
+transform:scale(1.05);
+
 }
 
 .hero-overlay{
+
 position:absolute;
+
 inset:0;
+
 display:flex;
+
 flex-direction:column;
+
 justify-content:center;
+
 align-items:center;
+
 text-align:center;
-padding:30px;
-background:linear-gradient(
-to top,
-rgba(0,0,0,.55),
-rgba(0,0,0,.15)
+
+padding:40px;
+
+background:
+linear-gradient(
+180deg,
+rgba(0,0,0,.20),
+rgba(0,0,0,.55)
 );
+
 color:white;
+
+}
+
+.hero-date{
+
+letter-spacing:4px;
+
+text-transform:uppercase;
+
+font-size:.8rem;
+
+margin-bottom:20px;
+
 }
 
 .hero-overlay h1{
-font-family:'Cormorant Garamond',serif;
-font-size:6rem;
+
+font-family:'Playfair Display',serif;
+
+font-size:clamp(3.5rem,10vw,7rem);
+
+font-weight:600;
+
+margin-bottom:20px;
+
 }
 
 .hero-overlay blockquote{
-font-size:1.8rem;
-max-width:700px;
+
+font-family:'Playfair Display',serif;
+
+font-style:italic;
+
+font-size:clamp(1.4rem,3vw,2.2rem);
+
+max-width:850px;
+
+line-height:1.5;
+
+}
+
+.scroll-indicator{
+
+position:absolute;
+
+bottom:40px;
+
+left:50%;
+
+transform:translateX(-50%);
+
+color:white;
+
+font-size:.9rem;
+
+text-align:center;
+
+opacity:.8;
+
 }
 
 /* CHAPTERS */
 
 .chapter{
-max-width:1200px;
+
+max-width:1000px;
+
 margin:auto;
-padding:120px 30px;
+
+padding:140px 30px;
+
 }
 
-.chapter h2{
-font-family:'Cormorant Garamond',serif;
-font-size:3.5rem;
-margin-bottom:30px;
+.chapter-header{
+
+text-align:center;
+
+margin-bottom:80px;
+
 }
 
-/* LETTER */
+.chapter-header span{
+
+display:block;
+
+font-size:.85rem;
+
+text-transform:uppercase;
+
+letter-spacing:3px;
+
+color:var(--gold);
+
+margin-bottom:15px;
+
+}
+
+.chapter-header h2{
+
+font-family:'Playfair Display',serif;
+
+font-size:clamp(2.8rem,6vw,5rem);
+
+font-weight:600;
+
+line-height:1.15;
+
+}
+
+.chapter-subtitle{
+
+margin-top:20px;
+
+font-style:italic;
+
+opacity:.7;
+
+}
+
+/* PARÁGRAFOS */
+
+p{
+
+font-size:1.15rem;
+
+line-height:1.95;
+
+margin-bottom:18px;
+
+}
+
+/* CARTAS */
 
 .letter{
+
 background:white;
-padding:50px;
-border-radius:24px;
-box-shadow:0 15px 35px rgba(0,0,0,.08);
-max-width:850px;
+
+padding:70px;
+
+border-radius:28px;
+
+box-shadow:var(--shadow);
+
+max-width:900px;
+
 margin:auto;
+
 }
 
-/* DATE PAGES */
+/* SPOTIFY */
 
-.book-page{
-background:white;
-padding:50px;
-margin:60px 0;
-border-radius:24px;
-box-shadow:0 20px 50px rgba(0,0,0,.08);
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:40px;
-position:relative;
+.chapter-soundtrack{
+
+max-width:700px;
+
+margin:0 auto 70px;
+
+text-align:center;
+
 }
 
-.book-page img{
-width:100%;
+.chapter-soundtrack h3{
+
+margin-bottom:20px;
+
+font-family:'Playfair Display',serif;
+
+font-size:1.5rem;
+
+}
+
+.chapter-soundtrack iframe{
+
 border-radius:18px;
+
+overflow:hidden;
+
+box-shadow:var(--shadow);
+
 }
 
-.page-number{
-position:absolute;
-right:25px;
-bottom:20px;
-opacity:.4;
-}
-
-.date-page{
-max-width:850px;
-margin:80px auto;
-padding:60px;
-background:white;
-border-radius:24px;
-box-shadow:0 15px 35px rgba(0,0,0,.06);
-}
-
-/* CALENDAR */
+/* CALENDÁRIO */
 
 .calendar-section{
-    max-width:900px;
-    margin:120px auto;
-    padding:50px;
-    background:#f6f0e4;
-    border:1px solid #d8cbb0;
-    box-shadow:0 15px 40px rgba(0,0,0,.08);
+
+max-width:900px;
+
+margin:120px auto;
+
+padding:50px;
+
+background:var(--paper-dark);
+
+border:1px solid #d8ccb9;
+
+border-radius:24px;
+
 }
 
 .calendar-section h3{
-    font-family:'Cormorant Garamond',serif;
-    font-size:2rem;
-    text-align:center;
-    margin-bottom:40px;
-    letter-spacing:3px;
+
+text-align:center;
+
+font-family:'Playfair Display',serif;
+
+font-size:2rem;
+
+letter-spacing:3px;
+
+margin-bottom:40px;
+
 }
 
 .calendar-grid{
-    display:grid;
-    grid-template-columns:repeat(7,1fr);
-    gap:12px;
+
+display:grid;
+
+grid-template-columns:repeat(7,1fr);
+
+gap:12px;
+
 }
 
 .calendar-day{
-    aspect-ratio:1;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    border:1px solid #d9d2c5;
-    background:white;
+
+aspect-ratio:1;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+background:white;
+
+border-radius:12px;
+
 }
 
 .calendar-day.active{
-    background:#6d1f2b;
-    color:white;
-    transform:scale(1.08);
-    font-weight:600;
+
+background:var(--wine);
+
+color:white;
+
+font-weight:600;
+
+transform:scale(1.08);
+
+}
+
+/* DATES */
+
+.date-page{
+
+max-width:850px;
+
+margin:80px auto;
+
+padding:60px;
+
+background:white;
+
+border-radius:24px;
+
+box-shadow:var(--shadow);
+
+}
+
+.date-label{
+
+display:block;
+
+color:var(--gold);
+
+margin-bottom:15px;
+
+font-size:.9rem;
+
+letter-spacing:2px;
+
+text-transform:uppercase;
+
+}
+
+.date-page h3{
+
+font-family:'Playfair Display',serif;
+
+font-size:2rem;
+
+margin-bottom:30px;
+
+}
+
+/* PÁGINAS EMOCIONAIS */
+
+.emotional-page,
+.quote-page{
+
+min-height:90vh;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+text-align:center;
+
+padding:50px;
+
+}
+
+.emotional-page p,
+.quote-page blockquote{
+
+font-family:'Playfair Display',serif;
+
+font-size:clamp(2.5rem,6vw,5rem);
+
+line-height:1.25;
+
+max-width:1000px;
+
 }
 
 /* POLAROIDS */
 
 .polaroid-wall{
+
 display:grid;
+
 grid-template-columns:repeat(2,1fr);
-gap:25px;
+
+gap:35px;
+
 }
 
 .polaroid{
+
 background:white;
-padding:15px;
-box-shadow:0 15px 40px rgba(0,0,0,.08);
+
+padding:15px 15px 35px;
+
+box-shadow:var(--shadow);
+
+}
+
+.polaroid:nth-child(odd){
+
+transform:rotate(-2deg);
+
+}
+
+.polaroid:nth-child(even){
+
+transform:rotate(2deg);
+
 }
 
 .polaroid img{
+
 width:100%;
+
 aspect-ratio:4/5;
+
 object-fit:cover;
+
 }
 
 .polaroid span{
+
 display:block;
-text-align:center;
+
 margin-top:15px;
-}
 
-/* QUOTE */
-
-.quote-page{
-min-height:80vh;
-display:flex;
-justify-content:center;
-align-items:center;
 text-align:center;
-padding:40px;
+
+font-family:'Playfair Display',serif;
+
 }
 
-.quote-page blockquote{
-font-family:'Cormorant Garamond',serif;
-font-size:clamp(3rem,7vw,5rem);
-max-width:1000px;
-line-height:1.2;
+/* AMIGOS */
+
+.friend-grid{
+
+display:grid;
+
+grid-template-columns:repeat(2,1fr);
+
+gap:25px;
+
 }
 
-/* QUOTE EMOTIONAL */
+.friend-grid img{
 
-.emotional-page{
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
+width:100%;
+
+height:320px;
+
+object-fit:cover;
+
+border-radius:18px;
+
 }
 
-.emotional-page p{
-    font-size:clamp(2rem,4vw,4rem);
-    line-height:1.3;
-    font-family:'Cormorant Garamond',serif;
-}
-
-/* TRAVEL */
+/* VIAGENS */
 
 .travel-stop{
+
 display:grid;
+
 grid-template-columns:45% 55%;
+
 gap:50px;
+
 align-items:center;
+
 margin:120px 0;
+
 }
 
 .travel-stop img{
+
 width:100%;
+
+height:420px;
+
+object-fit:cover;
+
 border-radius:20px;
+
+box-shadow:var(--shadow);
+
 }
 
-/* PASSPORT */
+.travel-text h3{
+
+font-family:'Playfair Display',serif;
+
+font-size:2rem;
+
+margin-bottom:20px;
+
+}
+
+/* PASSAPORTE */
 
 .passport-grid{
+
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+grid-template-columns:repeat(2,1fr);
+
 gap:30px;
+
 }
 
 .stamp{
+
 background:white;
+
 padding:40px;
+
 border-radius:24px;
+
 text-align:center;
+
+box-shadow:var(--shadow);
+
 }
 
-/* EPILOGUE */
+/* PEQUENAS COISAS */
+
+.small-things{
+
+display:grid;
+
+grid-template-columns:repeat(2,1fr);
+
+gap:30px;
+
+}
+
+.memory-item{
+
+background:white;
+
+padding:35px;
+
+border-radius:20px;
+
+box-shadow:var(--shadow);
+
+}
+
+.memory-item h3{
+
+font-family:'Playfair Display',serif;
+
+margin-bottom:15px;
+
+}
+
+/* EPÍLOGO */
 
 #epilogue{
+
 position:relative;
-height:100vh;
+
+height:100svh;
+
 }
 
 #epilogue img{
+
 width:100%;
+
 height:100%;
+
 object-fit:cover;
+
 filter:brightness(.45);
+
 }
 
 .epilogue-text{
+
 position:absolute;
+
 inset:0;
+
 display:flex;
+
 flex-direction:column;
+
 justify-content:flex-end;
+
 align-items:center;
+
 padding-bottom:120px;
+
 color:white;
+
 text-align:center;
+
+}
+
+.epilogue-text h2{
+
+font-family:'Playfair Display',serif;
+
+font-size:3rem;
+
+margin-top:30px;
+
 }
 
 /* FINAL */
 
 #final{
+
 background:black;
+
 color:white;
-min-height:100vh;
+
+min-height:100svh;
+
 display:flex;
+
 flex-direction:column;
+
 justify-content:center;
+
 align-items:center;
+
 text-align:center;
+
+gap:40px;
+
 }
 
-#final h1{
-font-family:'Cormorant Garamond',serif;
-font-size:6rem;
+.final-line{
+
+font-family:'Playfair Display',serif;
+
+font-size:clamp(2rem,5vw,4rem);
+
 }
 
-/* RESPONSIVO */
+.heart{
+
+font-size:3rem;
+
+}
+
+/* MOBILE */
 
 @media(max-width:900px){
 
@@ -313,7 +725,7 @@ font-size:18px;
 }
 
 .chapter{
-padding:80px 20px;
+padding:90px 22px;
 }
 
 .hero-overlay h1{
@@ -324,8 +736,16 @@ font-size:3rem;
 font-size:1.3rem;
 }
 
-.chapter h2{
-font-size:2.4rem;
+.chapter-header h2{
+font-size:2.5rem;
+}
+
+.letter{
+padding:35px;
+}
+
+.calendar-section{
+padding:25px;
 }
 
 .date-page{
@@ -336,19 +756,42 @@ padding:35px;
 grid-template-columns:1fr;
 }
 
-.travel-stop{
+.friend-grid{
 grid-template-columns:1fr;
 }
 
+.passport-grid{
+grid-template-columns:1fr;
+}
+
+.small-things{
+grid-template-columns:1fr;
+}
+
+.travel-stop{
+grid-template-columns:1fr;
+margin:80px 0;
+}
+
+.travel-stop img{
+height:300px;
+}
+
+.emotional-page p,
 .quote-page blockquote{
-font-size:2.5rem;
+font-size:2.3rem;
 }
 
-#final h1{
-font-size:3rem;
-}
-
-iframe{
+.chapter-soundtrack iframe{
 height:90px;
 }
+
+.epilogue-text{
+padding:40px;
+}
+
+.epilogue-text h2{
+font-size:2rem;
+}
+
 }
